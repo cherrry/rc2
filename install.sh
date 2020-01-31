@@ -10,12 +10,16 @@ git submodule update --remote --recursive
 # Linux specific
 if [ `uname` == 'Linux' ]; then
   LINUX_BASE="${RC_BASE}/linux"
-  # xfce4
-  mkdir -p "${HOME}/.config/xfce4/terminal"
-  rm -f "${HOME}/.config/xfce4/terminal/terminalrc"
-  ln -s "${LINUX_BASE}/xfce4/terminal/terminalrc" "${HOME}/.config/xfce4/terminal/terminalrc"
-  # gtk-3.0
-  mkdir -p "${HOME}/.config/gtk-3.0"
-  rm -f "${HOME}/.config/gtk-3.0/gtk.css"
-  ln -s "${LINUX_BASE}/gtk-3.0/gtk.css" "${HOME}/.config/gtk-3.0/gtk.css"
+  SYMLINK_CONFIGS=(
+    "xfce4/terminal/terminalrc"
+    "gtk-3.0/gtk.css"
+  )
+  for file in "${SYMLINK_CONFIGS[@]}"; do
+    source="${LINUX_BASE}/${file}"
+    target="${HOME}/.config/${file}"
+    echo "Symlink ${target} -> ${source}"
+    mkdir -p "$(dirname ${target})"
+    rm -rf "${target}"
+    ln -s "${source}" "${target}"
+  done
 fi
