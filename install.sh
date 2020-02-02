@@ -3,9 +3,28 @@
 RC_BASE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 cd "${RC_BASE}"
 
-# Necessary submodules
-git submodule update --init --recursive
-git submodule update --remote --recursive
+gitmodule() {
+  local repo="$1"
+  local dest="$2"
+  echo "Git Module ${dest} -> ${repo}"
+  mkdir -p "$(dirname ${dest})"
+  rm -rf "${dest}"
+  git clone "${repo}" "${dest}"
+}
+
+symlink() {
+  local src="$1"
+  local dest="$2"
+  echo "Symlink ${dest} -> ${src}"
+  mkdir -p "$(dirname ${dest})"
+  rm -rf "${dest}"
+  ln -s "${src}" "${dest}"
+}
+
+SHARED_BASE="${RC_BASE}/shared"
+# Shared: Vim
+gitmodule "https://github.com/VundleVim/Vundle.vim.git" "${HOME}/.vim/bundle/Vundle.vim"
+symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
 
 # Linux specific
 if [ `uname` == 'Linux' ]; then
@@ -17,9 +36,6 @@ if [ `uname` == 'Linux' ]; then
   for file in "${SYMLINK_CONFIGS[@]}"; do
     source="${LINUX_BASE}/${file}"
     target="${HOME}/.config/${file}"
-    echo "Symlink ${target} -> ${source}"
-    mkdir -p "$(dirname ${target})"
-    rm -rf "${target}"
-    ln -s "${source}" "${target}"
+    symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
 fi
