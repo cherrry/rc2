@@ -37,8 +37,12 @@ symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
 # Linux specific
 if [ `uname` == 'Linux' ]; then
   LINUX_BASE="${RC_BASE}/linux"
+
   symlink "${LINUX_BASE}/X11/xsessionrc" "${HOME}/.xsessionrc"
   symlink "${LINUX_BASE}/X11/Xresources" "${HOME}/.Xresources"
+
+  symlink "${LINUX_BASE}/redshift/redshift.conf" "${HOME}/.config/redshift.conf"
+
   SYMLINK_CONFIGS=(
     "i3/config"
     "i3/i3status"
