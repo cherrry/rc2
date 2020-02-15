@@ -9,7 +9,7 @@ gitmodule() {
   echo "Git Module ${dest} -> ${repo}"
   mkdir -p "$(dirname ${dest})"
   rm -rf "${dest}"
-  git clone "${repo}" "${dest}"
+  git clone --recursive "${repo}" "${dest}"
 }
 
 symlink() {
@@ -22,6 +22,14 @@ symlink() {
 }
 
 SHARED_BASE="${RC_BASE}/shared"
+
+# Shared: Zsh
+gitmodule "https://github.com/chriskempson/base16-shell.git" "${HOME}/.config/base16-shell"
+gitmodule "https://github.com/sorin-ionescu/prezto.git" "${HOME}/.zprezto"
+symlink "${SHARED_BASE}/zsh/zshrc" "${HOME}/.zshrc"
+symlink "${SHARED_BASE}/zsh/zpreztorc" "${HOME}/.zpreztorc"
+symlink "${SHARED_BASE}/zsh/zcustom" "${HOME}/.zcustom"
+
 # Shared: Vim
 gitmodule "https://github.com/VundleVim/Vundle.vim.git" "${HOME}/.vim/bundle/Vundle.vim"
 symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
