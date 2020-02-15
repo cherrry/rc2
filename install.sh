@@ -12,6 +12,15 @@ gitmodule() {
   git clone --recursive "${repo}" "${dest}"
 }
 
+copy() {
+  local src="$1"
+  local dest="$2"
+  echo "Copy ${dest} -> ${src}"
+  mkdir -p "$(dirname ${dest})"
+  rm -rf "${dest}"
+  cp "${src}" "${dest}"
+}
+
 symlink() {
   local src="$1"
   local dest="$2"
@@ -29,6 +38,10 @@ gitmodule "https://github.com/sorin-ionescu/prezto.git" "${HOME}/.zprezto"
 symlink "${SHARED_BASE}/zsh/zshrc" "${HOME}/.zshrc"
 symlink "${SHARED_BASE}/zsh/zpreztorc" "${HOME}/.zpreztorc"
 symlink "${SHARED_BASE}/zsh/zcustom" "${HOME}/.zcustom"
+
+# Shared: Tmux
+gitmodule "https://github.com/tmux-plugins/tpm.git" "${HOME}/.tmux/plugins/tpm"
+symlink "${SHARED_BASE}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
 # Shared: Vim
 gitmodule "https://github.com/VundleVim/Vundle.vim.git" "${HOME}/.vim/bundle/Vundle.vim"
@@ -51,11 +64,19 @@ if [ `uname` == 'Linux' ]; then
     "i3/config"
     "i3/i3status"
     "xfce4/terminal/terminalrc"
-    "gtk-3.0/gtk.css"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
     source="${LINUX_BASE}/${file}"
     target="${HOME}/.config/${file}"
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
+  done
+
+  COPY_CONFIGS=(
+    "gtk-3.0/gtk.css"
+  )
+  for file in "${COPY_CONFIGS[@]}"; do
+    source="${LINUX_BASE}/${file}"
+    target="${HOME}/.config/${file}"
+    copy "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
 fi
