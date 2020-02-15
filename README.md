@@ -28,3 +28,10 @@ Better organized personal configuration files.
 ```sh
 sudo ln -s "${PWD}/linux/fontconfig/*" "/etc/fonts/conf.d"
 ```
+
+#### X11
+
+```sh
+sudo rm -f "/etc/X11/xorg.conf"
+sudo ln -s "${PWD}/linux/X11/xorg.conf" "/etc/X11/xorg.conf"
+```
