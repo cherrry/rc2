@@ -80,3 +80,10 @@ if [ `uname` == 'Linux' ]; then
     copy "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
 fi
+
+# Mac Specific
+if [ `uname` == 'Darwin' ]; then
+  MAC_BASE="${RC_BASE}/mac"
+
+  tic -o "${HOME}/.terminfo" "${MAC_BASE}/terminfo/xterm-256color.terminfo"
+fi
