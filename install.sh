@@ -66,8 +66,6 @@ if [ `uname` == 'Linux' ]; then
     "xfce4/terminal/terminalrc"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
-    source="${LINUX_BASE}/${file}"
-    target="${HOME}/.config/${file}"
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
 
@@ -75,8 +73,6 @@ if [ `uname` == 'Linux' ]; then
     "gtk-3.0/gtk.css"
   )
   for file in "${COPY_CONFIGS[@]}"; do
-    source="${LINUX_BASE}/${file}"
-    target="${HOME}/.config/${file}"
     copy "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
 fi
