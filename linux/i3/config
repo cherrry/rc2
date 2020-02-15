@@ -1,0 +1,90 @@
+# Keyboard Layout
+exec --no-startup-id "setxkbmap -option 'ctrl:nocaps'"
+bindsym --release Print exec "gnome-screenshot --area"
+bindsym --release Shift+Print exec "gnome-screenshot --interactive"
+bindsym --release XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; killall -USR1 i3status"
+bindsym --release XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle; killall -USR1 i3status"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%; killall -USR1 i3status"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%; killall -USR1 i3status"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 1"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 1"
+
+# Touchpad Configs
+exec --no-startup-id "xinput --set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinput Tapping Enabled' 1"
+exec --no-startup-id "xinput --set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinput Natural Scrolling Enabled' 1"
+exec --no-startup-id "xinput --set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinput Accel Speed' 0.6"
+
+# Fancy UI
+exec --no-startup-id "compton --backend glx --paint-on-overlay"
+exec --no-startup-id "variety &"
+
+# Screensaver
+exec --no-startup_id "xset s 300 5"
+exec --no-startup-id "xss-lock -l -- xsecurelock"
+bindsym Ctrl+Mod1+l exec "xset s activate"
+
+# Daemon Tasks
+exec --no-startup-id "nm-applet"
+exec --no-startup-id "redshift"
+exec --no-startup-id "/usr/share/goobuntu-indicator/goobuntu_indicator.py"
+exec --no-startup-id "/usr/share/goobuntu-indicator/goobuntu_status.py"
+exec_always --no-startup-id "GDK_SCALE=1 GDK_DPI_SCALE=1 ibus-daemon -drx"
+
+# Modifier
+set $mod Mod4
+floating_modifier Mod1
+
+# i3 Session
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Window Layout
+hide_edge_borders both
+font pango:"Noto Sans CJK TC" 9
+bindsym $mod+f fullscreen toggle
+
+# Application
+bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+q kill
+bindsym $mod+Return exec "i3-sensible-terminal"
+
+# Application Windows
+for_window [instance="telegram"] resize set width 800
+
+# Workspace
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+n move container to workspace next; workspace next
+bindsym $mod+Shift+p move container to workspace prev; workspace prev
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+
+bar {
+  status_command ~/.config/i3/i3status/i3status.sh
+}

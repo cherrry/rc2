@@ -1,0 +1,11 @@
+general {
+  colors = true
+  interval = 5
+}
+
+volume output {
+  format = "🔉 %volume"
+  format_muted = "🔇"
+  separator = false
+}
+order += "volume output"

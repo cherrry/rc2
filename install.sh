@@ -30,6 +30,8 @@ symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
 if [ `uname` == 'Linux' ]; then
   LINUX_BASE="${RC_BASE}/linux"
   SYMLINK_CONFIGS=(
+    "i3/config"
+    "i3/i3status"
     "xfce4/terminal/terminalrc"
     "gtk-3.0/gtk.css"
   )
