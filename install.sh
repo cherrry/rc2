@@ -34,6 +34,10 @@ symlink "${SHARED_BASE}/zsh/zcustom" "${HOME}/.zcustom"
 gitmodule "https://github.com/VundleVim/Vundle.vim.git" "${HOME}/.vim/bundle/Vundle.vim"
 symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
 
+# Shared: Git
+symlink "${SHARED_BASE}/git/gitconfig" "${HOME}/.gitconfig"
+symlink "${SHARED_BASE}/git/gitignore" "${HOME}/.gitignore"
+
 # Linux specific
 if [ `uname` == 'Linux' ]; then
   LINUX_BASE="${RC_BASE}/linux"

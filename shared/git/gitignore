@@ -1,0 +1,6 @@
+.DS_Store
+.vimrc
+*.pyc
+*.swp
+*.swo
+npm-debug.log
