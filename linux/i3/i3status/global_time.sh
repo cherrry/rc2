@@ -7,6 +7,8 @@ format_time() {
 
 echo -n "🌏 HKG $(format_time "Asia/Hong_Kong")"
 echo -n " "
-echo -n "🌎 MTV $(format_time "America/Los_Angeles")"
+echo -n "🌎 "
+echo -n "$(format_time "America/Los_Angeles") / "
+echo -n "$(format_time "America/New_York")"
 echo -n " "
-echo -n "🌍 DUB $(format_time "Europe/Dublin")"
+echo -n "🌍 $(format_time "Europe/Dublin")"
