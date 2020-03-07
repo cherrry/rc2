@@ -21,6 +21,7 @@ yabai -m config layout                       bsp
 yabai -m config top_padding                  0
 
 # Application Windows
+yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 
 echo "yabai configuration loaded.."
