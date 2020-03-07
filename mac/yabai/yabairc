@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+# Status Bar
+yabai -m config status_bar                   on
+yabai -m config status_bar_text_font         "Helvetica Neue:Regular:12"
+yabai -m config status_bar_space_icon_strip  I II III IV V VI VII VIII IX
+yabai -m config status_bar_power_icon_strip  🔋 ⚡️
+yabai -m config status_bar_space_icon        🖥
+yabai -m config status_bar_clock_icon        🕒
+
+# global settings
+yabai -m config mouse_follows_focus          on
+yabai -m config focus_follows_mouse          on
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+
+# Tilting Layout
+yabai -m config layout                       bsp
+yabai -m config top_padding                  0
+
+# Application Windows
+yabai -m rule --add app="^System Preferences$" manage=off
+
+echo "yabai configuration loaded.."

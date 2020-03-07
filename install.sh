@@ -82,4 +82,7 @@ if [ `uname` == 'Darwin' ]; then
   MAC_BASE="${RC_BASE}/mac"
 
   tic -o "${HOME}/.terminfo" "${MAC_BASE}/terminfo/xterm-256color.terminfo"
+
+  symlink "${MAC_BASE}/yabai/yabairc" "${HOME}/.yabairc"
+  symlink "${MAC_BASE}/yabai/skhdrc" "${HOME}/.skhdrc"
 fi
