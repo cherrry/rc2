@@ -58,6 +58,7 @@ if [ `uname` == 'Linux' ]; then
   symlink "${LINUX_BASE}/X11/xsessionrc" "${HOME}/.xsessionrc"
   symlink "${LINUX_BASE}/X11/Xresources" "${HOME}/.Xresources"
 
+  symlink "${LINUX_BASE}/compton/compton.conf" "${HOME}/.config/compton.conf"
   symlink "${LINUX_BASE}/redshift/redshift.conf" "${HOME}/.config/redshift.conf"
 
   SYMLINK_CONFIGS=(
