@@ -1,7 +1,6 @@
 # Keyboard Layout
 exec --no-startup-id "setxkbmap -option 'ctrl:nocaps'"
-bindsym --release Print exec "gnome-screenshot --area"
-bindsym --release Shift+Print exec "gnome-screenshot --interactive"
+bindsym --release Print exec "flameshot gui"
 bindsym --release XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym --release XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
