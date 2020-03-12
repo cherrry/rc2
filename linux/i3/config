@@ -2,10 +2,10 @@
 exec --no-startup-id "setxkbmap -option 'ctrl:nocaps'"
 bindsym --release Print exec "gnome-screenshot --area"
 bindsym --release Shift+Print exec "gnome-screenshot --interactive"
-bindsym --release XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; killall -USR1 i3status"
-bindsym --release XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle; killall -USR1 i3status"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%; killall -USR1 i3status"
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%; killall -USR1 i3status"
+bindsym --release XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym --release XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 1"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 1"
 
@@ -17,9 +17,9 @@ exec --no-startup-id "xinput --set-button-map 'SYNA8004:00 06CB:CD8B Touchpad' 1
 
 # Fancy UI
 exec --no-startup-id "compton --backend glx --paint-on-overlay"
-exec --no-startup-id "variety &"
+exec --no-startup-id "feh --bg-fill --randomize ~/Pictures/wallpaper/"
 
-# Screensaver
+# Lockscreen
 exec --no-startup_id "xset s 300 5"
 exec --no-startup-id "xss-lock -l -- xsecurelock"
 bindsym Ctrl+Mod1+l exec "xset s activate"
@@ -51,7 +51,6 @@ bindsym $mod+Return exec "i3-sensible-terminal"
 
 # Application Windows
 for_window [class="^.*"] border pixel 2
-for_window [instance="telegram"] resize set width 800
 
 # Workspace
 bindsym $mod+h focus left
