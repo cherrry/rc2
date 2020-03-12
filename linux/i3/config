@@ -88,4 +88,6 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 bar {
   status_command ~/.config/i3/i3status/pystatus.py
+  bindsym button4 exec "true"
+  bindsym button5 exec "true"
 }
