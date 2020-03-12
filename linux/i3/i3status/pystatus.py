@@ -19,10 +19,14 @@ def main():
     status.register('clock',
                     format=('🌏 HKG %H:%M', 'Asia/Hong_Kong'),
                     hints={'separator': False})
-    status.register('shell', command='~/.config/i3/i3status/today.py')
+    status.register('shell',
+                    command='~/.config/i3/i3status/today.py',
+                    hints={'separator': False})
 
     status.register('battery',
                     format='{status} {percentage:.1f}%',
+                    full_color='#ffffff',
+                    charging_color='#ffffff',
                     status={
                         'CHR': '🔌',
                         'DIS': '🔋',
