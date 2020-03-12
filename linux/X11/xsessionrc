@@ -3,7 +3,7 @@ if [ -x "$(command -v ssh-agent)" ]; then
   eval "$(ssh-agent -s)"
 fi
 
-export PATH="${HOME}/bin:${PATH}"
+export PATH="${HOME}/bin:/home/linuxbrew/.linuxbrew/bin:${PATH}"
 
 export DESKTOP_SESSION=goobuntu-custom
 export XSECURELOCK_PAM_SERVICE=xsecurelock
