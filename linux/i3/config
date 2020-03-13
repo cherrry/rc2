@@ -44,7 +44,7 @@ font pango:"Noto Sans CJK TC" 9
 bindsym $mod+f fullscreen toggle
 
 # Application
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec "dmenu_run -nf '#B8B8B8' -nb '#181818' -sb '#383838' -sf '#E8E8E8'"
 bindsym $mod+Shift+q kill
 bindsym $mod+Return exec "i3-sensible-terminal"
 
@@ -88,21 +88,22 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 bar {
   status_command ~/.config/i3/i3status/pystatus.py
   colors {
-    background         #2f343f
-    statusline         #d8dee8
-    separator          #4b5262
-    focused_workspace  #2f343f #bf616a #d8dee8
-    active_workspace   #2f343f #2f343f #d8dee8
-    inactive_workspace #2f343f #2f343f #d8dee8
-    urgent_workspace   #2f343f #ebcb8b #2f343f
+    background #181818
+    statusline #F8F8F8
+    separator  #282828
+
+    focused_workspace  #585858 #383838 #E8E8E8
+    active_workspace   #585858 #383838 #585858
+    inactive_workspace #383838 #282828 #585858
+    urgent_workspace   #DC9695 #AB4642 #E8E8E8
+    binding_mode       #DC9695 #AB4642 #E8E8E8
   }
   bindsym button4 exec "true"
   bindsym button5 exec "true"
 }
 
-client.focused           #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive  #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused         #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder       #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background        #2f343f
+client.focused          #585858 #383838 #E8E8E8 #383838 #B8B8B8
+client.focused_inactive #181818 #181818 #585858 #181818 #181818
+client.unfocused        #181818 #181818 #585858 #181818 #181818
+client.urgent           #DC9695 #AB4642 #E8E8E8 #AB4642 #DC9695
+client.background       #181818
