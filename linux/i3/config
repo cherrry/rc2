@@ -15,7 +15,7 @@ exec --no-startup-id "xinput --set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinp
 exec --no-startup-id "xinput --set-button-map 'SYNA8004:00 06CB:CD8B Touchpad' 1 1 3 4 5 6 7"
 
 # Fancy UI
-exec --no-startup-id "compton -b --backend glx --paint-on-overlay"
+exec --no-startup-id "compton -b"
 exec --no-startup-id "feh --bg-fill --randomize ~/Pictures/wallpaper/"
 
 # Lockscreen
