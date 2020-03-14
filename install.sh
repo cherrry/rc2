@@ -62,6 +62,7 @@ if [ `uname` == 'Linux' ]; then
   symlink "${LINUX_BASE}/redshift/redshift.conf" "${HOME}/.config/redshift.conf"
 
   SYMLINK_CONFIGS=(
+    "dunst/dunstrc"
     "i3/config"
     "i3/i3status"
     "xfce4/terminal/terminalrc"
