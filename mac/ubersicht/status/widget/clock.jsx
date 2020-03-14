@@ -4,6 +4,7 @@ import tz from 'moment-timezone';
 const HKG = 'Asia/Hong_Kong';
 const MTV = 'America/Los_Angeles';
 const NYC = 'America/New_York';
+const DUB = 'Europe/Dublin';
 
 const list = {
   padding: 0,
@@ -27,7 +28,7 @@ function Clock() {
   const now = Now();
   return (
     <ul style={list}>
-      <li style={item}>🗓 {now.fmt(HKG, 'D MMM, YYYY (ddd)')}</li>
+      <li style={item}>🗓 {now.fmt(HKG, 'Do MMM, YYYY (ddd)')}</li>
       <li style={item}></li>
       <li style={item}>🌏 {now.fmt(HKG)}</li>
       <li style={item}></li>

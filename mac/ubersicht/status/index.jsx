@@ -5,8 +5,10 @@ export const command = 'true';
 export const refreshFrequency = 17;
 export const render = () => (
   <div>
-    <Battery />
-    <Clock />
+    <div style={{position: 'absolute', right: '12px'}}>
+      <Battery />
+      <Clock />
+    </div>
   </div>
 );
 
@@ -18,7 +20,6 @@ export const className = `
   background-color: #181818;
   color: #f8f8f8;
   line-height: 26px;
-  padding: 0 20px;
   font-family: 'Helvetica';
   font-size: 12px;
   vertical-align: middle;
