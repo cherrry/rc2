@@ -17,7 +17,7 @@ def main():
                         'separator_block_width': 0
                     })
     status.register('clock',
-                    format=('🌏 HKG %H:%M', 'Asia/Hong_Kong'),
+                    format=('🌏 %H:%M', 'Asia/Hong_Kong'),
                     hints={'separator': False})
     status.register('shell',
                     command='~/.config/i3/i3status/today.py',
