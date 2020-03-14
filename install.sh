@@ -86,4 +86,6 @@ if [ `uname` == 'Darwin' ]; then
 
   symlink "${MAC_BASE}/yabai/yabairc" "${HOME}/.yabairc"
   symlink "${MAC_BASE}/yabai/skhdrc" "${HOME}/.skhdrc"
+
+  symlink "${MAC_BASE}/ubersicht" "${HOME}/Library/Application Support/Übersicht/widgets"
 fi
