@@ -90,7 +90,7 @@ bar {
   colors {
     background #181818
     statusline #F8F8F8
-    separator  #282828
+    separator  #383838
 
     focused_workspace  #585858 #383838 #E8E8E8
     active_workspace   #585858 #383838 #585858

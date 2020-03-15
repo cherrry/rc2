@@ -25,8 +25,8 @@ def main():
 
     status.register('battery',
                     format='{status} {percentage:.1f}%',
-                    full_color='#ffffff',
-                    charging_color='#ffffff',
+                    charging_color='#F8F8F8',
+                    full_color='#F8F8F8',
                     status={
                         'CHR': '🔌',
                         'DIS': '🔋',
@@ -36,6 +36,7 @@ def main():
     status.register('pulseaudio',
                     format='🔉 {volume}%',
                     format_muted='🔇 Muted',
+                    color_muted='#AB4642',
                     hints={'separator': False},
                     on_leftclick='switch_mute')
     status.run()
