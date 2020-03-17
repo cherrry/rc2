@@ -1,12 +1,12 @@
 # Keyboard Layout
 exec --no-startup-id "setxkbmap -option 'ctrl:nocaps'"
-bindsym --release Print exec "flameshot gui"
-bindsym --release XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-bindsym --release XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 1"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 1"
+bindsym --release Print exec --no-startup-id "flameshot gui"
+bindsym --release XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym --release XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 1"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 1"
 
 # Touchpad Configs
 exec --no-startup-id "xinput --set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinput Tapping Enabled' 1"
@@ -19,9 +19,9 @@ exec --no-startup-id "compton -b"
 exec --no-startup-id "feh --bg-fill --randomize ~/Pictures/wallpaper/"
 
 # Lockscreen
-exec --no-startup_id "xset s 300 5"
+exec --no-startup-id "xset s 300 5"
 exec --no-startup-id "xss-lock -l -- xsecurelock"
-bindsym Ctrl+Mod1+l exec "xset s activate"
+bindsym Ctrl+Mod1+l exec --no-startup-id "xset s activate"
 
 # Daemon Tasks
 exec --no-startup-id "nm-applet"
@@ -44,9 +44,9 @@ font pango:"Noto Sans CJK TC" 9
 bindsym $mod+f fullscreen toggle
 
 # Application
-bindsym $mod+d exec "dmenu_run -nf '#B8B8B8' -nb '#181818' -sb '#383838' -sf '#E8E8E8'"
+bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#B8B8B8' -nb '#181818' -sb '#383838' -sf '#E8E8E8'"
 bindsym $mod+Shift+q kill
-bindsym $mod+Return exec "i3-sensible-terminal"
+bindsym $mod+Return exec --no-startup-id "i3-sensible-terminal"
 
 # Application Windows
 for_window [class="^.*"] border pixel 2
