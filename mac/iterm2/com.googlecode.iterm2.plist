@@ -18,6 +18,8 @@
 	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
+	<key>BadgeTopMargin</key>
+	<integer>10</integer>
 	<key>CheckTestRelease</key>
 	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -1093,13 +1095,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>346 108 606 469 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>540 405 918 452 0 0 1680 1050 </string>
+	<string>540 444 1018 447 0 0 1680 1050 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_Hack-Regular</key>
 	<string>246 463 260 96 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>840 0 840 1024 0 0 1680 1050 </string>
+	<string>0 0 1680 1024 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1440 900 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_5248D609-FC7B-460E-85B2-2AD4C8AC897D</key>
@@ -2048,6 +2050,8 @@
 	<integer>0</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>TerminalVMargin</key>
+	<integer>5</integer>
 	<key>ThreeFingerEmulates</key>
 	<false/>
 	<key>TmuxDashboardLimit</key>
