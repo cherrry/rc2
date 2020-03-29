@@ -23,6 +23,7 @@ yabai -m config window_gap                   2
 
 # Application Windows
 yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 
 echo "yabai configuration loaded.."

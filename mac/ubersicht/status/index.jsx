@@ -1,16 +1,21 @@
-import Battery from './widget/battery.jsx';
-import Clock from './widget/clock.jsx';
+import Battery from './lib/battery.jsx';
+import Clock from './lib/clock.jsx';
 
 export const command = 'true';
-export const refreshFrequency = 17;
-export const render = () => (
-  <div>
-    <div style={{position: 'absolute', right: '12px'}}>
-      <Battery />
-      <Clock />
+
+function Index({output}) {
+  return (
+    <div>
+      <div style={{position: 'absolute', right: '12px'}}>
+        <Battery />
+        <Clock />
+      </div>
     </div>
-  </div>
-);
+  );
+}
+
+export const refreshFrequency = 17;
+export const render = Index;
 
 export const className = `
   left: 0;

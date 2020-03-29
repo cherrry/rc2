@@ -33,6 +33,8 @@ function Clock() {
       <li style={item}>🌏 {now.fmt(HKG)}</li>
       <li style={item}></li>
       <li style={item}>🌎 {now.fmt(MTV)} / {now.fmt(NYC)}</li>
+      <li style={item}></li>
+      <li style={item}>🌎 {now.fmt(DUB)}</li>
     </ul>
   );
 };
