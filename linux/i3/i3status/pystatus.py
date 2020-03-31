@@ -22,10 +22,7 @@ def main():
     status.register('shell',
                     command='~/.config/i3/i3status/today.py',
                     hints={'separator': False})
-    status.register(
-        'shell',
-        command='curl -s "wttr.in/Hong_Kong?m&format=%c+%t+%h" | sed "s/+//"',
-        interval=60)
+    status.register('shell', command='~/.config/i3/i3status/weather.sh')
 
     status.register('battery',
                     format='{status} {percentage:.1f}%',
