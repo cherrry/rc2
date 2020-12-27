@@ -38,6 +38,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'google/vim-codefmt'
+Plugin 'dense-analysis/ale'
 
 " Code Searching
 Plugin 'othree/eregex.vim'
@@ -80,6 +81,10 @@ let g:vim_json_syntax_conceal=0
 " CodeFmt
 let g:ycm_autoclose_preview_window_after_completion=1
 Glaive codefmt plugin[mappings]
+
+" Linting
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
 
 " Fix delete
 set backspace=2

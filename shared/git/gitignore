@@ -1,4 +1,6 @@
+.direnv/
 .DS_Store
+.envrc
 .vimrc
 *.pyc
 *.swp

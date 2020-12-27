@@ -23,3 +23,9 @@ alias -g ....="../../.."
 if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook zsh)"
 fi
+
+# Python
+if [ -x "$(command -v conda)" ]; then
+  eval "$(conda shell.zsh hook)"
+fi
+export PYTHONPYCACHEPREFIX=.pycache
