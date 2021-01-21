@@ -6,6 +6,8 @@
     excludesfile = ~/.gitignore
     ignorecase = false
     pager = diff-so-fancy | less --tabs=4 -R
+[pull]
+    rebase = true
 [push]
     default = simple
 [filter "media"]
@@ -34,6 +36,8 @@
     tup = up
 [branch]
     autosetuprebase = always
+[init]
+    defaultbranch = master
 [filter "hawser"]
     clean = git hawser clean %f
     smudge = git hawser smudge %f
