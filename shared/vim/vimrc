@@ -5,6 +5,7 @@ set shell=/bin/bash
 set encoding=utf8
 set mouse=a
 set nonumber
+set signcolumn=yes
 set hlsearch
 set smartindent
 set autoindent
@@ -35,10 +36,9 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'Yggdroot/indentLine'
 
 " Code Editing
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'google/vim-codefmt'
-Plugin 'dense-analysis/ale'
 
 " Code Searching
 Plugin 'othree/eregex.vim'
@@ -79,12 +79,19 @@ set noshowmode
 let g:vim_json_syntax_conceal=0
 
 " CodeFmt
-let g:ycm_autoclose_preview_window_after_completion=1
 Glaive codefmt plugin[mappings]
 
-" Linting
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'W'
+" Code Completion
+inoremap <silent><expr> <tab>
+      \ pumvisible() ? "\<c-n>" :
+      \ <sid>check_back_space() ? "\<tab>" :
+      \ coc#refresh()
+inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Fix delete
 set backspace=2
