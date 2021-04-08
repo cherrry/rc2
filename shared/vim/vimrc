@@ -51,6 +51,7 @@ Plug 'google/vim-codefmt'
 " Navigation
 Plug 'othree/eregex.vim'
 Plug 'chaoren/vim-wordmotion'
+Plug 'itchyny/vim-cursorword'
 
 " Plugin Manager (end)
 call plug#end()
