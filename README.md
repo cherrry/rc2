@@ -12,14 +12,7 @@ Better organized personal configuration files.
 
 #### Vim
 
-1. Run `:PluginInstall` to pull all vim plugins.
-
-2. Build `YouCompleteMe` with desired options:
-
-   ```sh
-   cd "${HOME}/.vim/bundle/YouCompleteMe
-   python3 ./install.py --clangd-completer --clang-completer --ts-completer
-   ```
+Run `:PlugInstall` to pull all vim plugins.
 
 ### More on Linux
 
