@@ -41,6 +41,7 @@ Plug 'elzr/vim-json'
 " UI Display
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'mhinz/vim-signify'
 
 " Editing
 Plug 'neoclide/coc.nvim'
@@ -49,6 +50,7 @@ Plug 'google/vim-codefmt'
 
 " Navigation
 Plug 'othree/eregex.vim'
+Plug 'chaoren/vim-wordmotion'
 
 " Plugin Manager (end)
 call plug#end()
