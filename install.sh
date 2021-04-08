@@ -3,6 +3,15 @@
 RC_BASE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 cd "${RC_BASE}"
 
+download() {
+  local url="$1"
+  local dest="$2"
+  echo "Download File ${dest} -> ${url}"
+  mkdir -p "$(dirname ${dest})"
+  rm -rf "${dest}"
+  curl --fail --location --output "${dest}" "${url}"
+}
+
 gitmodule() {
   local repo="$1"
   local dest="$2"
@@ -44,7 +53,9 @@ gitmodule "https://github.com/tmux-plugins/tpm.git" "${HOME}/.tmux/plugins/tpm"
 symlink "${SHARED_BASE}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
 # Shared: Vim
-gitmodule "https://github.com/VundleVim/Vundle.vim.git" "${HOME}/.vim/bundle/Vundle.vim"
+download \
+  "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
+  "${HOME}/.vim/autoload/plug.vim"
 symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
 
 # Shared: Git

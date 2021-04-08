@@ -19,38 +19,39 @@ nnoremap <C-c> <silent> <C-c>
 nnoremap \ :nohlsearch<Cr>
 
 " Plugin Manager (begin)
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-glaive'
+call plug#begin('~/.vim/bundle')
 
-" Project Specific
-Plugin 'cherrry/1ndependence.vim'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'VundleVim/Vundle.vim'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-glaive'
+
+" Project Setup
+Plug 'cherrry/1ndependence.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 
-Plugin 'itchyny/lightline.vim'
-Plugin 'Yggdroot/indentLine'
+" Syntax Files
+Plug 'bfrg/vim-cpp-modern'
+Plug 'ap/vim-css-color'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
 
-" Code Editing
-Plugin 'neoclide/coc.nvim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'google/vim-codefmt'
+" UI Display
+Plug 'itchyny/lightline.vim'
+Plug 'Yggdroot/indentLine'
 
-" Code Searching
-Plugin 'othree/eregex.vim'
+" Editing
+Plug 'neoclide/coc.nvim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'google/vim-codefmt'
 
-" Language Files
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'ap/vim-css-color'
-Plugin 'pangloss/vim-javascript'
-Plugin 'elzr/vim-json'
+" Navigation
+Plug 'othree/eregex.vim'
 
 " Plugin Manager (end)
-call vundle#end()
+call plug#end()
 call glaive#Install() 
 
 " Basic Configuration (con't)
@@ -64,8 +65,8 @@ nnoremap <C-k> 2<C-y>
 colorscheme base16-default-dark
 set termguicolors
 syntax on
-hi Normal ctermbg=None guibg=NONE
-hi Comment cterm=italic
+highlight Normal ctermbg=None guibg=NONE
+highlight Comment cterm=italic
 
 " Indent Guides
 set list lcs=tab:\▏\ 
