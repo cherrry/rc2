@@ -64,3 +64,5 @@
     current = yellow reverse
     local = yellow
     remote = green
+[commit]
+	gpgsign = true
