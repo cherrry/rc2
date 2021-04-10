@@ -77,7 +77,7 @@ set list listchars=tab:\▏\ ,trail:·
 let g:indentLine_char='▏'
 
 " Lightline
-let g:lightline={'colorscheme':'wombat'}
+let g:lightline={'colorscheme':'wombat', 'subseparator': {'left': '│', 'right': '│'}}
 set laststatus=2
 set noshowmode
 
