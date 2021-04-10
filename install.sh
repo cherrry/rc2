@@ -57,6 +57,7 @@ download \
   "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
   "${HOME}/.vim/autoload/plug.vim"
 symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
+symlink "${SHARED_BASE}/vim/coc-settings.json" "${HOME}/.vim/coc-settings.json"
 
 # Shared: Git
 symlink "${SHARED_BASE}/git/gitconfig" "${HOME}/.gitconfig"
