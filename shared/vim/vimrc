@@ -15,8 +15,8 @@ set shiftwidth=2
 set expandtab
 set cursorline
 let mapleader=';'
-nnoremap <C-c> <silent> <C-c>
-nnoremap \ :nohlsearch<Cr>
+nnoremap <c-c> <silent> <c-c>
+nnoremap \ :nohlsearch<cr>
 
 " Plugin Manager (begin)
 call plug#begin('~/.vim/bundle')
@@ -52,6 +52,7 @@ Plug 'google/vim-codefmt'
 Plug 'othree/eregex.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'itchyny/vim-cursorword'
+Plug 'lambdalisue/fern.vim'
 
 " Plugin Manager (end)
 call plug#end()
@@ -61,8 +62,8 @@ call glaive#Install()
 filetype plugin indent on
 
 " Scroll Behavior
-nnoremap <C-j> 2<C-e>
-nnoremap <C-k> 2<C-y>
+nnoremap <c-j> 2<c-e>
+nnoremap <c-k> 2<c-y>
 
 " Color Scheme
 colorscheme base16-default-dark
@@ -85,7 +86,7 @@ let g:vim_json_syntax_conceal=0
 " CodeFmt
 Glaive codefmt plugin[mappings]
 
-" Code Completion
+" Tab Completion
 inoremap <silent><expr> <tab>
       \ pumvisible() ? "\<c-n>" :
       \ <sid>check_back_space() ? "\<tab>" :
@@ -96,6 +97,22 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Hover Documentation
+nnoremap <silent> K :call <sid>show_documentation()<cr>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Navigation
+nnoremap <c-n> :Fern . -drawer -toggle<cr>
 
 " Fix delete
 set backspace=2
