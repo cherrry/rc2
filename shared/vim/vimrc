@@ -15,8 +15,11 @@ set shiftwidth=2
 set expandtab
 set cursorline
 let mapleader=';'
-nnoremap <c-c> <silent> <c-c>
+nnoremap <c-c> <esc>
 nnoremap \ :nohlsearch<cr>
+map <c-a> <nop>
+map <c-q> <nop>
+map q <nop>
 
 " Plugin Manager (begin)
 call plug#begin('~/.vim/bundle')
