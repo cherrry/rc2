@@ -24,7 +24,6 @@ map q <nop>
 " Plugin Manager (begin)
 call plug#begin('~/.vim/bundle')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-glaive'
 
