@@ -85,9 +85,6 @@ set noshowmode
 
 let g:vim_json_syntax_conceal=0
 
-" CodeFmt
-Glaive codefmt plugin[mappings]
-
 " Tab Completion
 inoremap <silent><expr> <tab>
       \ pumvisible() ? "\<c-n>" :
