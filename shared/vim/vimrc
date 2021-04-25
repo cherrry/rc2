@@ -56,6 +56,9 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'itchyny/vim-cursorword'
 Plug 'lambdalisue/fern.vim'
 
+" Customization
+Plug 'cherrry/vcs-utils.vim'
+
 " Plugin Manager (end)
 call plug#end()
 call glaive#Install() 
@@ -79,7 +82,10 @@ set list listchars=tab:\▏\ ,trail:·
 let g:indentLine_char='▏'
 
 " Lightline
-let g:lightline={'colorscheme':'wombat', 'subseparator': {'left': '│', 'right': '│'}}
+let g:lightline={
+      \'colorscheme':'wombat', 'subseparator': {'left': '│', 'right': '│'},
+      \'component_function': {'filename': 'vcs#relative_path'}
+      \}
 set laststatus=2
 set noshowmode
 
