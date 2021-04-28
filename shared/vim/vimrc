@@ -32,6 +32,7 @@ Plug 'cherrry/1ndependence.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
+Plug 'rakr/vim-one'
 Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Syntax Files
@@ -68,10 +69,10 @@ nnoremap <c-j> 2<c-e>
 nnoremap <c-k> 2<c-y>
 
 " Color Scheme
-let g:deepspace_italics=1
+let g:one_allow_italics=1
 set background=dark
 set termguicolors
-colorscheme deep-space
+colorscheme one
 highlight Normal ctermbg=None guibg=NONE
 
 " Indent Guides
@@ -79,7 +80,10 @@ set list listchars=tab:\▏\ ,trail:·
 let g:indentLine_char='▏'
 
 " Lightline
-let g:lightline={'colorscheme': 'deepspace'}
+let g:lightline={
+      \ 'colorscheme': 'deepspace',
+      \ 'subseparator': {'left': '｜', 'right': '｜'}
+      \ }
 set laststatus=2
 set noshowmode
 
