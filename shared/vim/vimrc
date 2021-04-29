@@ -32,8 +32,10 @@ Plug 'cherrry/1ndependence.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
+Plug 'fnune/base16-vim'
+Plug 'daviesjamie/vim-base16-lightline'
+" vim-one is able to highlight Error correctly.
 Plug 'rakr/vim-one'
-Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Syntax Files
 Plug 'bfrg/vim-cpp-modern'
@@ -69,10 +71,10 @@ nnoremap <c-j> 2<c-e>
 nnoremap <c-k> 2<c-y>
 
 " Color Scheme
-let g:one_allow_italics=1
 set background=dark
 set termguicolors
-colorscheme one
+colorscheme base16-classic-dark
+highlight Comment cterm=italic
 highlight Normal ctermbg=None guibg=NONE
 
 " Indent Guides
@@ -81,7 +83,7 @@ let g:indentLine_char='▏'
 
 " Lightline
 let g:lightline={
-      \ 'colorscheme': 'deepspace',
+      \ 'colorscheme': 'base16',
       \ 'subseparator': {'left': '｜', 'right': '｜'}
       \ }
 set laststatus=2

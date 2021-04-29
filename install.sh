@@ -42,7 +42,7 @@ symlink() {
 SHARED_BASE="${RC_BASE}/shared"
 
 # Shared: Zsh
-gitmodule "https://github.com/chriskempson/base16-shell.git" "${HOME}/.config/base16-shell"
+gitmodule "https://github.com/fnune/base16-shell.git" "${HOME}/.config/base16-shell"
 gitmodule "https://github.com/sorin-ionescu/prezto.git" "${HOME}/.zprezto"
 symlink "${SHARED_BASE}/zsh/zshrc" "${HOME}/.zshrc"
 symlink "${SHARED_BASE}/zsh/zpreztorc" "${HOME}/.zpreztorc"
