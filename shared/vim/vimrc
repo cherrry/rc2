@@ -54,7 +54,7 @@ Plug 'google/vim-codefmt'
 " Navigation
 Plug 'othree/eregex.vim'
 Plug 'chaoren/vim-wordmotion'
-Plug 'itchyny/vim-cursorword'
+Plug 'RRethy/vim-illuminate'
 Plug 'lambdalisue/fern.vim'
 
 " Plugin Manager (end)
