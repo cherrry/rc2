@@ -59,7 +59,7 @@ Plug 'lambdalisue/fern.vim'
 
 " Plugin Manager (end)
 call plug#end()
-call glaive#Install() 
+call glaive#Install()
 
 " Basic Configuration (con't)
 filetype plugin indent on
@@ -69,6 +69,7 @@ nnoremap <c-j> 2<c-e>
 nnoremap <c-k> 2<c-y>
 
 " Color Scheme
+set fillchars=vert:│
 set background=dark
 set termguicolors
 colorscheme base16-classic-dark
@@ -82,7 +83,7 @@ let g:indentLine_char='▏'
 " Lightline
 let g:lightline={
       \ 'colorscheme': 'base16',
-      \ 'subseparator': {'left': '｜', 'right': '｜'}
+      \ 'subseparator': {'left': '│', 'right': '│'}
       \ }
 set laststatus=2
 set noshowmode
