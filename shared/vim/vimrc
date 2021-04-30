@@ -34,8 +34,6 @@ Plug 'editorconfig/editorconfig-vim'
 " Color Scheme
 Plug 'fnune/base16-vim'
 Plug 'daviesjamie/vim-base16-lightline'
-" vim-one is able to highlight Error correctly.
-Plug 'rakr/vim-one'
 
 " Syntax Files
 Plug 'bfrg/vim-cpp-modern'
