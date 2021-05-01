@@ -36,6 +36,7 @@ Plug 'fnune/base16-vim'
 Plug 'daviesjamie/vim-base16-lightline'
 
 " Syntax Files
+Plug 'tpope/vim-git'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
