@@ -61,6 +61,9 @@ Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
+" Customization
+Plug 'cherrry/vcs-utils.vim'
+
 " Plugin Manager (end)
 call plug#end()
 call glaive#Install()
@@ -87,7 +90,8 @@ let g:indentLine_char='▏'
 " Lightline
 let g:lightline={
       \ 'colorscheme': 'base16',
-      \ 'subseparator': {'left': '│', 'right': '│'}
+      \ 'subseparator': {'left': '│', 'right': '│'},
+      \ 'component_function': {'filename': 'vcs#short_relative_path' },
       \ }
 set laststatus=2
 set noshowmode
