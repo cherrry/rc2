@@ -1109,7 +1109,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_Hack-Regular</key>
 	<string>246 463 260 96 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1349 349 1010 699 0 0 2560 1440 </string>
+	<string>1349 259 1110 789 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1440 900 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_5248D609-FC7B-460E-85B2-2AD4C8AC897D</key>
@@ -1936,7 +1936,7 @@
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
-			<true/>
+			<false/>
 			<key>Vertical Spacing</key>
 			<real>1.0600000000000001</real>
 			<key>Visual Bell</key>
@@ -1963,9 +1963,9 @@
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
+		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{537, 925}</string>
+		<string>{269, 601}</string>
 	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
@@ -1981,7 +1981,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>DA6BD0B7-96F4-4EF3-B5D1-AA353A7D0246</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>302</integer>
+	<integer>303</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
