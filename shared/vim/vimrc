@@ -55,7 +55,11 @@ Plug 'google/vim-codefmt'
 Plug 'othree/eregex.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'RRethy/vim-illuminate'
+
+" Project Explorer
 Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
 " Plugin Manager (end)
 call plug#end()
@@ -116,6 +120,7 @@ function! s:show_documentation()
 endfunction
 
 " Navigation
+let g:fern#renderer = "nerdfont"
 nnoremap <c-n> :Fern . -drawer -toggle<cr>
 
 " Fix delete
