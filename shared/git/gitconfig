@@ -5,7 +5,7 @@
     quotepath = false
     excludesfile = ~/.gitignore
     ignorecase = false
-    pager = diff-so-fancy | less --tabs=4 -R
+    pager = git-split-diffs --color | less -RFX
 [pull]
     rebase = true
 [push]
