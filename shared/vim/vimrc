@@ -33,7 +33,6 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
 Plug 'fnune/base16-vim'
-Plug 'daviesjamie/vim-base16-lightline'
 
 " Syntax Files
 Plug 'tpope/vim-git'
@@ -90,7 +89,7 @@ let g:indentLine_char='▏'
 
 " Lightline
 let g:lightline={
-      \ 'colorscheme': 'base16',
+      \ 'colorscheme': 'wombat',
       \ 'subseparator': {'left': '│', 'right': '│'},
       \ 'component_function': {'filename': 'vcs#short_relative_path' },
       \ }
