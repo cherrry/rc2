@@ -32,7 +32,7 @@ Plug 'cherrry/1ndependence.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
-Plug 'fnune/base16-vim'
+Plug 'fnune/base16-vim', {'commit': '00a414d'}
 
 " Syntax Files
 Plug 'tpope/vim-git'

@@ -10,7 +10,7 @@ base16_classic-dark
 
 # Fix Cursor
 function precmd() {
-  print '\033[6 q'
+  printf '\033[6 q'
 }
 
 # Homebrew
