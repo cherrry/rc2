@@ -37,3 +37,8 @@ export PYTHONPYCACHEPREFIX=.pycache
 
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -x "$(command -v ag)" ]; then
+  touch "${HOME}/.agignore"
+  export FZF_DEFAULT_COMMAND="ag -p '${HOME}/.agignore' -g ''"
+  export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+fi
