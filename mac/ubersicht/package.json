@@ -1,9 +1,0 @@
-{
-  "name": "ubersicht-config",
-  "private": true,
-  "dependencies": {
-    "loudness": "^0.3.0",
-    "moment": "^2.24.0",
-    "moment-timezone": "^0.5.28"
-  }
-}
