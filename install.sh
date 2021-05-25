@@ -52,6 +52,10 @@ symlink "${SHARED_BASE}/zsh/zcustom" "${HOME}/.zcustom"
 gitmodule "https://github.com/tmux-plugins/tpm.git" "${HOME}/.tmux/plugins/tpm"
 symlink "${SHARED_BASE}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
+# Shared: Fzf
+gitmodule "https://github.com/junegunn/fzf.git" "${HOME}/.fzf"
+yes | "${HOME}/.fzf/install"
+
 # Shared: Vim
 download \
   "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \

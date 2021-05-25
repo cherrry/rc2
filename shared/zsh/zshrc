@@ -34,3 +34,6 @@ if [ -x "$(command -v conda)" ]; then
   eval "$(conda shell.zsh hook)"
 fi
 export PYTHONPYCACHEPREFIX=.pycache
+
+# Fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
