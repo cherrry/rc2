@@ -37,6 +37,7 @@ export PYTHONPYCACHEPREFIX=.pycache
 
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--border --ansi --tabstop=2"
 if [ -x "$(command -v ag)" ]; then
   touch "${HOME}/.agignore"
   export FZF_DEFAULT_COMMAND="ag -p '${HOME}/.agignore' -g ''"
