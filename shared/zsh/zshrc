@@ -24,6 +24,13 @@ source "${HOME}/.zprezto/init.zsh"
 alias -g ...="../.."
 alias -g ....="../../.."
 
+# Exa
+if [ -x "$(command -v exa)" ]; then
+  alias ls='exa'
+  alias l='ls -1a'
+  alias la='ll -a'
+fi
+
 # Direnv
 if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook zsh)"
