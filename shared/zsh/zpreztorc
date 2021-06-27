@@ -3,10 +3,12 @@ fpath=(
   ${fpath}
 )
 
+zstyle ':prezto:load' pmodule-dirs $HOME/.zcontrib
 zstyle ':prezto:load' pmodule \
   'environment' \
   'autosuggestions' \
   'directory' \
+  'fzf-tab' \
   'git' \
   'history' \
   'utility' \

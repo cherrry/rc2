@@ -55,6 +55,7 @@ symlink "${SHARED_BASE}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 # Shared: Fzf
 gitmodule "https://github.com/junegunn/fzf.git" "${HOME}/.fzf"
 yes | "${HOME}/.fzf/install"
+gitmodule "https://github.com/Aloxaf/fzf-tab.git" "${HOME}/.zcontrib/fzf-tab"
 
 # Shared: Vim
 download \
