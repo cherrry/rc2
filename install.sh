@@ -21,15 +21,6 @@ gitmodule() {
   git clone --recursive "${repo}" "${dest}"
 }
 
-copy() {
-  local src="$1"
-  local dest="$2"
-  echo "Copy ${dest} -> ${src}"
-  mkdir -p "$(dirname ${dest})"
-  rm -rf "${dest}"
-  cp "${src}" "${dest}"
-}
-
 symlink() {
   local src="$1"
   local dest="$2"
@@ -82,17 +73,10 @@ if [ `uname` == 'Linux' ]; then
     "dunst/dunstrc"
     "i3/config"
     "i3/i3status"
-    "xfce4/terminal/terminalrc"
+    "kitty/kitty.conf"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
-  done
-
-  COPY_CONFIGS=(
-    "gtk-3.0/gtk.css"
-  )
-  for file in "${COPY_CONFIGS[@]}"; do
-    copy "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
 fi
 
