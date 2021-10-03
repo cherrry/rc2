@@ -86,3 +86,14 @@ if [ `uname` == 'Darwin' ]; then
 
   tic -o "${HOME}/.terminfo" "${MAC_BASE}/terminfo/xterm-256color.terminfo"
 fi
+
+# Corp Specific
+if [ -x "$(command -v gcert)" ]; then
+  CORP_BASE="${RC_BASE}/corp"
+
+  symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
+
+  symlink "${CORP_BASE}/bin/newday" "${HOME}/bin/newday"
+  symlink "${CORP_BASE}/systemd/ssh-agent.service" "${HOME}/.config/systemd/user/ssh-agent.service"
+fi
+
