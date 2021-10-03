@@ -10,8 +10,13 @@ export GLFW_IM_MODULE=ibus
 
 if [ -d "/home/linuxbrew/.linuxbrew" ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  export EXPORT_HOMEBREW_SHELLENV=1
+elif [ -d "${HOME}/.linuxbrew" ]; then
+  eval "$(${HOME}/.linuxbrew/bin/brew shellenv)"
+  export EXPORT_HOMEBREW_SHELLENV=1
 fi
 export PATH="${HOME}/bin:${PATH}"
+export EXPORT_HOME_BIN=1
 
 export DESKTOP_SESSION=goobuntu-custom
 export XSECURELOCK_PAM_SERVICE=xsecurelock

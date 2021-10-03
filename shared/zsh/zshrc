@@ -16,6 +16,21 @@ function precmd() {
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+if [ -z "${EXPORT_HOMEBREW_SHELLENV}" ]; then
+  if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    export EXPORT_HOMEBREW_SHELLENV=1
+  elif [[ -d "${HOME}/.linuxbrew" ]]; then
+    eval "$(${HOME}/.linuxbrew/bin/brew shellenv)"
+    export EXPORT_HOMEBREW_SHELLENV=1
+  fi
+fi
+
+# Local Executables
+if [ -z "${EXPORT_HOME_BIN}" ]; then
+  export PATH="${HOME}/bin:${PATH}"
+  export EXPORT_HOME_BIN=1
+fi
 
 # Prezto
 source "${HOME}/.zprezto/init.zsh"
