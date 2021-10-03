@@ -44,7 +44,7 @@ user_service() {
 sudo_copy() {
   local src="$1"
   local dest="$2"
-  return  # comment to sudo copy
+  # return  # comment to sudo copy
   echo "SUDO: Copy ${dest} -> ${src}"
   sudo mkdir -p "$(dirname ${dest})"
   sudo rm -rf "${dest}"
@@ -103,6 +103,10 @@ if [ `uname` == 'Linux' ]; then
   for file in "${SYMLINK_CONFIGS[@]}"; do
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
+
+  symlink "${LINUX_BASE}/bin/nemo" "${HOME}/bin/nemo"
+  symlink "${LINUX_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
+  symlink "$(which google-chrome-stable)" "${HOME}/bin/chrome"
 
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell" "/usr/local/bin/sway_shell"
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"

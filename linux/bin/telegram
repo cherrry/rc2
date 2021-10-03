@@ -1,0 +1,3 @@
+#!/bin/bash
+export IBUS_USE_PORTAL=1
+exec /usr/bin/telegram-desktop $@

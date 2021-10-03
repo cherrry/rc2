@@ -1,20 +1,22 @@
 #!/bin/bash
 if [ -x "$(command -v ssh-agent)" ]; then
-  eval "$(ssh-agent -s)"
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export GLFW_IM_MODULE=ibus
+
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 export PATH="${HOME}/bin:${PATH}"
-export PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
-export PATH="/home/linuxbrew/.linuxbrew/sbin:${PATH}"
 
 export DESKTOP_SESSION=goobuntu-custom
 export XSECURELOCK_PAM_SERVICE=xsecurelock
 
 export TERMINAL=kitty
-
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
 
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
