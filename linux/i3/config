@@ -37,7 +37,7 @@ bindsym $mod+Shift+r restart
 
 # Window Layout
 hide_edge_borders both
-font pango:monospace 0
+font pango:monospace 9
 bindsym $mod+f fullscreen toggle
 
 # Container Layout
@@ -87,7 +87,7 @@ bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 bar {
-  font pango:"Noto Sans CJK HK" 8
+  font pango:"Noto Sans CJK HK" 9
   status_command ~/.config/i3/i3status/pystatus.py
   colors {
     background #181818
