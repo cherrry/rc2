@@ -44,7 +44,7 @@ user_service() {
 sudo_copy() {
   local src="$1"
   local dest="$2"
-  # return  # comment to sudo copy
+  return  # comment to sudo copy
   echo "SUDO: Copy ${dest} -> ${src}"
   sudo mkdir -p "$(dirname ${dest})"
   sudo rm -rf "${dest}"
@@ -88,6 +88,7 @@ if [ `uname` == 'Linux' ]; then
 
   symlink "${LINUX_BASE}/X11/xsessionrc" "${HOME}/.xsessionrc"
   symlink "${LINUX_BASE}/X11/Xresources" "${HOME}/.Xresources"
+  sudo_copy "${LINUX_BASE}/X11/60-keyboard-backlight.conf" "/etc/X11/xorg.conf.d/60-keyboard-backlight.conf"
 
   symlink "${LINUX_BASE}/compton/compton.conf" "${HOME}/.config/compton.conf"
   symlink "${LINUX_BASE}/redshift/redshift.conf" "${HOME}/.config/redshift.conf"
@@ -105,6 +106,7 @@ if [ `uname` == 'Linux' ]; then
   done
 
   symlink "${LINUX_BASE}/bin/nemo" "${HOME}/bin/nemo"
+  symlink "${LINUX_BASE}/bin/telegram" "${HOME}/bin/telegram"
   symlink "${LINUX_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
   symlink "$(which google-chrome-stable)" "${HOME}/bin/chrome"
 
@@ -131,6 +133,7 @@ if [ -x "$(command -v gcert)" ]; then
   CORP_BASE="${RC_BASE}/corp"
 
   symlink "${CORP_BASE}/bin/newday" "${HOME}/bin/newday"
+  symlink "${CORP_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
   symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
   symlink "${CORP_BASE}/ssh/config" "${HOME}/.ssh/config"
 fi
