@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Sway Shell
+Comment=An i3-compatible Wayland compositor
+Exec=sway_shell
+TryExec=sway_shell
+Type=Application

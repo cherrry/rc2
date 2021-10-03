@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ -x "$(command -v ssh-agent)" ]; then
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+export PATH="${HOME}/bin:${PATH}"
+exec sway

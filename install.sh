@@ -30,6 +30,15 @@ symlink() {
   ln -s "${src}" "${dest}"
 }
 
+sudo_copy() {
+  local src="$1"
+  local dest="$2"
+  echo "SUDO: Copy ${dest} -> ${src}"
+  sudo mkdir -p "$(dirname ${dest})"
+  sudo rm -rf "${dest}"
+  sudo cp "${src}" "${dest}"
+}
+
 SHARED_BASE="${RC_BASE}/shared"
 
 # Shared: Zsh
@@ -74,10 +83,14 @@ if [ `uname` == 'Linux' ]; then
     "i3/config"
     "i3/i3status"
     "kitty/kitty.conf"
+    "sway/config"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
+
+  sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell" "/usr/local/bin/sway_shell"
+  sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"
 fi
 
 # Mac Specific
