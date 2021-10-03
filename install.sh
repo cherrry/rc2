@@ -7,6 +7,7 @@ download() {
   local url="$1"
   local dest="$2"
   echo "Download File ${dest} -> ${url}"
+  return  # comment to download
   mkdir -p "$(dirname ${dest})"
   rm -rf "${dest}"
   curl --fail --location --output "${dest}" "${url}"
@@ -16,6 +17,7 @@ gitmodule() {
   local repo="$1"
   local dest="$2"
   echo "Git Module ${dest} -> ${repo}"
+  return  # comment to clone
   mkdir -p "$(dirname ${dest})"
   rm -rf "${dest}"
   git clone --recursive "${repo}" "${dest}"
@@ -42,6 +44,7 @@ user_service() {
 sudo_copy() {
   local src="$1"
   local dest="$2"
+  return  # comment to sudo copy
   echo "SUDO: Copy ${dest} -> ${src}"
   sudo mkdir -p "$(dirname ${dest})"
   sudo rm -rf "${dest}"
@@ -63,7 +66,9 @@ symlink "${SHARED_BASE}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
 # Shared: Fzf
 gitmodule "https://github.com/junegunn/fzf.git" "${HOME}/.fzf"
-yes | "${HOME}/.fzf/install"
+if [ ! -x "$(command -v fzf)" ]; then
+  yes | "${HOME}/.fzf/install"
+fi
 gitmodule "https://github.com/Aloxaf/fzf-tab.git" "${HOME}/.zcontrib/fzf-tab"
 
 # Shared: Vim
@@ -103,6 +108,11 @@ if [ `uname` == 'Linux' ]; then
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"
 
   user_service "ssh-agent"
+
+  if [ ! -x "$(command -v kitty)" ]; then
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
+    symlink "${HOME}/.local/kitty.app/bin/kitty" "${HOME}/bin/kitty"
+  fi
 fi
 
 # Mac Specific
