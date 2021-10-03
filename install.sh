@@ -133,7 +133,6 @@ if [ -x "$(command -v gcert)" ]; then
   CORP_BASE="${RC_BASE}/corp"
 
   symlink "${CORP_BASE}/bin/newday" "${HOME}/bin/newday"
-  symlink "${CORP_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
   symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
   symlink "${CORP_BASE}/ssh/config" "${HOME}/.ssh/config"
 fi
