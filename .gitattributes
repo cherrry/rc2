@@ -1,0 +1,2 @@
+corp/bin/newday filter=git-crypt diff=git-crypt
+corp/systemd/ssh-agent.service filter=git-crypt diff=git-crypt

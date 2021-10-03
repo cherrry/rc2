@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+#
+# Daily prodaccess script, place under your $PATH on both laptop and workstation.
+#
+# Usage: newday # on laptop, every morning.
+
+import argparse
+import getpass
+import pathlib
+import subprocess
+import sys
+
+from datetime import datetime
+from datetime import timedelta
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--remote', default=True, action=argparse.BooleanOptionalAction)
+    return parser.parse_args()
+
+
+def run_cmd(cmd, password: str=None):
+    if password is None:
+        result = subprocess.call(cmd)
+        if result:
+            raise Exception('%s failed with exit code %d' % (cmd[0], result))
+    else:
+        process = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+        process.communicate(password.encode())
+        process.wait()
+        if process.returncode:
+            raise Exception('%s failed with exit code %d' % (cmd[0], process.returncode))
+
+
+def need_refresh():
+    cache = pathlib.Path('/tmp/newday')
+    cache.touch(mode=0o644, exist_ok=True)
+    with open(cache, 'r') as f:
+        content = f.readline()
+        last_execute = datetime.fromisoformat(content) if content else datetime.min
+        if last_execute.date() < datetime.today().date():
+            return True
+        if last_execute > datetime.now() - timedelta(hours=12):
+            return False
+    return True
+
+
+def run_local(password: str):
+    if need_refresh():
+        run_cmd(['glogin', '-glogin_no_tty'], password)
+        run_cmd(['gcert', '-s'])
+        cache = pathlib.Path('/tmp/newday')
+        with open(cache, 'w') as f:
+            f.write(datetime.now().isoformat())
+
+
+def run_remote(host: str, password: str):
+    run_cmd(['ssh', host, 'newday', '--no-remote'], password)
+
+
+def main():
+    args = get_args()
+    password = getpass.getpass('Please enter password for %s: ' % getpass.getuser())
+    run_local(password)
+    if args.remote:
+        run_remote(getpass.getuser(), password)
+
+
+if __name__ == '__main__':
+    main()
