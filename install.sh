@@ -41,6 +41,15 @@ user_service() {
   fi
 }
 
+copy() {
+  local src="$1"
+  local dest="$2"
+  echo "Copy ${dest} -> ${src}"
+  mkdir -p "$(dirname ${dest})"
+  rm -rf "${dest}"
+  cp "${src}" "${dest}"
+}
+
 sudo_copy() {
   local src="$1"
   local dest="$2"
@@ -92,6 +101,7 @@ if [ `uname` == 'Linux' ]; then
   symlink "${LINUX_BASE}/X11/Xresources" "${HOME}/.Xresources"
   sudo_copy "${LINUX_BASE}/X11/60-keyboard-backlight.conf" "/etc/X11/xorg.conf.d/60-keyboard-backlight.conf"
 
+  copy "${LINUX_BASE}/gtk-3.0/settings.ini" "${HOME}/.config/settings.ini"
   symlink "${LINUX_BASE}/compton/compton.conf" "${HOME}/.config/compton.conf"
   symlink "${LINUX_BASE}/redshift/redshift.conf" "${HOME}/.config/redshift.conf"
 
