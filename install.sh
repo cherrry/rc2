@@ -30,6 +30,15 @@ symlink() {
   ln -s "${src}" "${dest}"
 }
 
+user_service() {
+  local service="$1"
+  if [ -x "$(command -v systemctl)" ]; then
+    echo "User Service ${service}"
+    systemctl --user enable "${service}"
+    systemctl --user start "${service}"
+  fi
+}
+
 sudo_copy() {
   local src="$1"
   local dest="$2"
@@ -84,6 +93,7 @@ if [ `uname` == 'Linux' ]; then
     "i3/i3status"
     "kitty/kitty.conf"
     "sway/config"
+    "systemd/user/ssh-agent.service"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
@@ -91,6 +101,8 @@ if [ `uname` == 'Linux' ]; then
 
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell" "/usr/local/bin/sway_shell"
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"
+
+  user_service "ssh-agent"
 fi
 
 # Mac Specific
@@ -104,9 +116,7 @@ fi
 if [ -x "$(command -v gcert)" ]; then
   CORP_BASE="${RC_BASE}/corp"
 
-  symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
-
   symlink "${CORP_BASE}/bin/newday" "${HOME}/bin/newday"
-  symlink "${CORP_BASE}/systemd/ssh-agent.service" "${HOME}/.config/systemd/user/ssh-agent.service"
+  symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
+  symlink "${CORP_BASE}/ssh/config" "${HOME}/.ssh/config"
 fi
-
