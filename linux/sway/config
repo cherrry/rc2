@@ -3,13 +3,92 @@ input * {
   xkb_layout "us"
   xkb_options "ctrl:nocaps"
 }
+bindsym --release XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym --release XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 1"
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 1"
 
 # Modifier
 set $mod Mod4
 
 # Sway Session
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
 
 # Application
-bindsym $mod+d exec --no-startup-id "dmenu_run"
+bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#B8B8B8' -nb '#181818' -sb '#383838' -sf '#E8E8E8'"
+bindsym $mod+Shift+q kill
+bindsym $mod+Return exec --no-startup-id "kitty"
+
+# Daemon Tasks
+exec --no-startup-id "nm-applet"
+exec --no-startup-id "redshift"
+exec_always --no-startup-id "ibus-daemon -drx"
+
+# Application Windows
+hide_edge_borders both
+font pango:monospace 6
+for_window [class="^.*"] border pixel 2
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+s layout toggle splith tabbed
+bindsym Mod1+Tab focus right
+
+# Workspace
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+n move container to workspace next; workspace next
+bindsym $mod+Shift+p move container to workspace prev; workspace prev
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+
+# Status Bar
+bar {
+  font pango:sans 8
+  status_command ~/.config/i3/i3status/pystatus.py
+  colors {
+    background #181818
+    statusline #F8F8F8
+    separator  #383838
+
+    focused_workspace  #585858 #383838 #E8E8E8
+    active_workspace   #585858 #383838 #585858
+    inactive_workspace #383838 #282828 #585858
+    urgent_workspace   #DC9695 #AB4642 #E8E8E8
+    binding_mode       #DC9695 #AB4642 #E8E8E8
+  }
+  bindsym button4 exec "true"
+  bindsym button5 exec "true"
+}
+
+client.focused          #585858 #383838 #E8E8E8 #383838 #B8B8B8
+client.focused_inactive #181818 #181818 #585858 #181818 #181818
+client.unfocused        #181818 #181818 #585858 #181818 #181818
+client.urgent           #DC9695 #AB4642 #E8E8E8 #AB4642 #DC9695
+client.background       #181818
