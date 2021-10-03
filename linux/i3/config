@@ -9,7 +9,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 1"
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 1"
 
 # Touchpad Configs
-exec_always --no-startup-id "i3/touchpad.sh"
+exec_always --no-startup-id "~/bin/i3/touchpad.sh"
 
 # Fancy UI
 exec --no-startup-id "compton -b"

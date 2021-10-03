@@ -112,6 +112,10 @@ if [ `uname` == 'Linux' ]; then
   symlink "${LINUX_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
   symlink "$(which google-chrome-stable)" "${HOME}/bin/chrome"
 
+  sudo_copy "${LINUX_BASE}/fonts/65-cjk-fallback.conf" "/etc/fonts/conf.d/65-cjk-fallback.conf"
+  sudo_copy "${LINUX_BASE}/fonts/75-color-emoji.conf" "/etc/fonts/conf.d/75-color-emoji.conf"
+  symlink "${LINUX_BASE}/fonts/joypixels.ttf" "${HOME}/.local/share/fonts/joypixels.ttf"
+
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell" "/usr/local/bin/sway_shell"
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"
 
