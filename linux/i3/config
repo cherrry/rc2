@@ -13,7 +13,7 @@ exec_always --no-startup-id "~/bin/i3/touchpad.sh"
 
 # Fancy UI
 exec --no-startup-id "compton -b"
-exec --no-startup-id "feh --bg-fill --randomize ~/Pictures/wallpaper/"
+exec_always --no-startup-id "feh --bg-fill --randomize ~/wallpapers"
 
 # Lockscreen
 exec --no-startup-id "xset s 300 5"

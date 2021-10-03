@@ -82,6 +82,8 @@ symlink "${SHARED_BASE}/vim/coc-settings.json" "${HOME}/.vim/coc-settings.json"
 symlink "${SHARED_BASE}/git/gitconfig" "${HOME}/.gitconfig"
 symlink "${SHARED_BASE}/git/gitignore" "${HOME}/.gitignore"
 
+symlink "${SHARED_BASE}/wallpapers" "${HOME}/wallpapers"
+
 # Linux specific
 if [ `uname` == 'Linux' ]; then
   LINUX_BASE="${RC_BASE}/linux"
@@ -94,6 +96,7 @@ if [ `uname` == 'Linux' ]; then
   symlink "${LINUX_BASE}/redshift/redshift.conf" "${HOME}/.config/redshift.conf"
 
   SYMLINK_CONFIGS=(
+    "autorandr/postswitch"
     "dunst/dunstrc"
     "i3/config"
     "i3/i3status"

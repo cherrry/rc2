@@ -1,2 +1,3 @@
 corp/** filter=git-crypt diff=git-crypt
 linux/fonts/joypixels.ttf filter=git-crypt diff=git-crypt
+shared/wallpapers/** filter=git-crypt diff=git-crypt
