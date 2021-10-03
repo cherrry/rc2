@@ -105,6 +105,8 @@ if [ `uname` == 'Linux' ]; then
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
 
+  symlink "${LINUX_BASE}/i3/scripts/touchpad.sh" "${HOME}/bin/i3/touchpad.sh"
+
   symlink "${LINUX_BASE}/bin/nemo" "${HOME}/bin/nemo"
   symlink "${LINUX_BASE}/bin/telegram" "${HOME}/bin/telegram"
   symlink "${LINUX_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
