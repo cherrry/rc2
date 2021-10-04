@@ -137,6 +137,9 @@ if [ `uname` == 'Linux' ]; then
   done
   sudo_copy "${LINUX_BASE}/fonts/65-cjk-fallback.conf" "/etc/fonts/conf.d/65-cjk-fallback.conf"
   sudo_copy "${LINUX_BASE}/fonts/75-color-emoji.conf" "/etc/fonts/conf.d/75-color-emoji.conf"
+  sudo_copy \
+    "${LINUX_BASE}/fonts/78-please-dont-show-me-simplified-chinese.conf" \
+    "/etc/fonts/conf.d/78-please-dont-show-me-simplified-chinese.conf"
 
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell" "/usr/local/bin/sway_shell"
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"
