@@ -172,5 +172,8 @@ if [ -x "$(command -v gcert)" ]; then
   if [ -x "$(command -v g4)" ]; then
     symlink "${CORP_BASE}/android/android_hook.sh" "${HOME}/.hook/android_hook.sh"
     symlink "${CORP_BASE}/android/envrc" "${HOME}/.hook/android_envrc"
+
+    symlink "${CORP_BASE}/vim/vimrc" "${HOME}/.vimrc"
+    symlink "${CORP_BASE}/vim/coc-settings.json" "${HOME}/.vim/coc-settings.json"
   fi
 fi
