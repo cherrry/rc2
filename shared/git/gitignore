@@ -6,4 +6,5 @@
 *.pyc
 *.swp
 *.swo
+bazel-*
 npm-debug.log

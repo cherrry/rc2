@@ -75,4 +75,4 @@
     local = yellow
     remote = green
 [commit]
-	gpgsign = true
+    gpgsign = true

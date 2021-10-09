@@ -175,5 +175,7 @@ if [ -x "$(command -v gcert)" ]; then
 
     symlink "${CORP_BASE}/vim/vimrc" "${HOME}/.vimrc"
     symlink "${CORP_BASE}/vim/coc-settings.json" "${HOME}/.vim/coc-settings.json"
+
+    symlink "${CORP_BASE}/zsh/zpreztorc" "${HOME}/.zpreztorc"
   fi
 fi

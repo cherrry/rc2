@@ -65,3 +65,8 @@ if [ -x "$(command -v ag)" ]; then
   export FZF_DEFAULT_COMMAND="ag -p '${HOME}/.agignore' -g ''"
   export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 fi
+
+# Android Hook
+if [ -f "${HOME}/.hook/android_hook.sh" ]; then
+  eval "$(cat "${HOME}/.hook/android_hook.sh")"
+fi
