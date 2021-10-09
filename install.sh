@@ -167,4 +167,10 @@ if [ -x "$(command -v gcert)" ]; then
   symlink "${CORP_BASE}/bin/newday" "${HOME}/bin/newday"
   symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
   symlink "${CORP_BASE}/ssh/config" "${HOME}/.ssh/config"
+
+  # Workstation
+  if [ -x "$(command -v g4)" ]; then
+    symlink "${CORP_BASE}/android/android_hook.sh" "${HOME}/.hook/android_hook.sh"
+    symlink "${CORP_BASE}/android/envrc" "${HOME}/.hook/android_envrc"
+  fi
 fi
