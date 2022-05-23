@@ -164,7 +164,6 @@ if [ -x "$(command -v gcert)" ]; then
   CORP_BASE="${RC_BASE}/corp"
 
   symlink "${CORP_BASE}/bin/automouse" "${HOME}/bin/automouse"
-  symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
   symlink "${CORP_BASE}/ssh/config" "${HOME}/.ssh/config"
 
   # Laptop
@@ -174,6 +173,8 @@ if [ -x "$(command -v gcert)" ]; then
 
   # Workstation
   if [ -x "$(command -v g4)" ]; then
+    symlink "${CORP_BASE}/git/gitconfig" "${HOME}/.gitconfig"
+
     symlink "${CORP_BASE}/android/android_hook.sh" "${HOME}/.hook/android_hook.sh"
     symlink "${CORP_BASE}/android/envrc" "${HOME}/.hook/android_envrc"
 
