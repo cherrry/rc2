@@ -27,6 +27,7 @@ exec --no-startup-id "/usr/share/goobuntu-indicator/goobuntu_indicator.py"
 exec --no-startup-id "/usr/share/goobuntu-indicator/goobuntu_status.py"
 exec_always --no-startup-id "GDK_SCALE=1 GDK_DPI_SCALE=1 ibus-daemon -drx"
 exec_always --no-startup-id "killall automouse; nohup automouse >/dev/null&"
+exec_always --no-startup-id "nocaps"
 
 # Modifier
 set $mod Mod4

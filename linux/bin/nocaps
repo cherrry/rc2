@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xdotool key --clearmodifiers 'grave'
+setxkbmap -option 'ctrl:nocaps'
