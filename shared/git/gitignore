@@ -7,4 +7,5 @@
 *.swp
 *.swo
 bazel-*
+binary_cache/
 npm-debug.log
