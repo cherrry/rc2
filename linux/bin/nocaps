@@ -1,4 +1,13 @@
 #!/bin/bash
 
-xdotool key --clearmodifiers 'grave'
-setxkbmap -option 'ctrl:nocaps'
+caps_lock() {
+  xset -q | sed -n 's/^.*Caps Lock:\s*\(\S*\).*$/\1/p'
+}
+
+while true; do
+  sleep 10
+  if [ $(caps_lock) == "on" ]; then
+    xdotool key Caps_Lock
+  fi
+  setxkbmap -option 'ctrl:nocaps'
+done

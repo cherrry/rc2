@@ -1,5 +1,4 @@
 # Keyboard Layout
-exec --no-startup-id "setxkbmap -option 'ctrl:nocaps'"
 bindsym --release Crtl+Print exec --no-startup-id "flameshot gui"
 bindsym --release XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym --release XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
