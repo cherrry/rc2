@@ -53,7 +53,7 @@ copy() {
 sudo_copy() {
   local src="$1"
   local dest="$2"
-  return  # comment to sudo copy
+  # return  # comment to sudo copy
   echo "SUDO: Copy ${dest} -> ${src}"
   sudo mkdir -p "$(dirname ${dest})"
   sudo rm -rf "${dest}"
@@ -168,6 +168,9 @@ if [ `uname` == 'Linux' ]; then
   sudo_copy \
     "${LINUX_BASE}/fonts/78-please-dont-show-me-simplified-chinese.conf" \
     "/etc/fonts/conf.d/78-please-dont-show-me-simplified-chinese.conf"
+  sudo_copy \
+    "${LINUX_BASE}/fonts/78-ban-noto-cjk-fonts.conf" \
+    "/etc/fonts/conf.d/78-ban-noto-cjk-fonts.conf"
 
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell" "/usr/local/bin/sway_shell"
   sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"
