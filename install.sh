@@ -122,6 +122,7 @@ if [ `uname` == 'Linux' ]; then
 
   symlink "${LINUX_BASE}/bin/nemo" "${HOME}/bin/nemo"
   symlink "${LINUX_BASE}/bin/nocaps" "${HOME}/bin/nocaps"
+  symlink "${LINUX_BASE}/bin/reset_monitor" "${HOME}/bin/reset_monitor"
   symlink "${LINUX_BASE}/bin/telegram" "${HOME}/bin/telegram"
   symlink "${LINUX_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
   symlink "$(which google-chrome-stable)" "${HOME}/bin/chrome"
