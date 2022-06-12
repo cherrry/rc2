@@ -1,6 +1,6 @@
 [global]
 follow = mouse
-font = Noto Sans CJK HK 8
+font = Chiron Hei HK 8
 format = "<b>%s</b>\n%b"
 frame_width = 2
 geometry = "560x480-24+24"

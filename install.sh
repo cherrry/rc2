@@ -93,6 +93,26 @@ symlink "${SHARED_BASE}/git/gitignore" "${HOME}/.gitignore"
 
 symlink "${SHARED_BASE}/wallpapers" "${HOME}/wallpapers"
 
+# Shared: Fonts
+CHIRON_HEI_PREFIX="https://github.com/chiron-fonts/chiron-hei-hk/raw/v2.502/TTF"
+CHIRON_HEI_TTFS=(
+  ChironHeiHK-R.ttf
+  ChironHeiHK-R-It.ttf
+  ChironHeiHK-L.ttf
+  ChironHeiHK-L-It.ttf
+  ChironHeiHK-B.ttf
+  ChironHeiHK-B-It.ttf
+)
+CHIRON_SUNG_PREFIX="https://github.com/chiron-fonts/chiron-sung-hk/raw/v1.003/TTF"
+CHIRON_SUNG_TTFS=(
+  ChironSungHK-R.ttf
+  ChironSungHK-R-It.ttf
+  ChironSungHK-L.ttf
+  ChironSungHK-L-It.ttf
+  ChironSungHK-B.ttf
+  ChironSungHK-B-It.ttf
+)
+
 # Linux specific
 if [ `uname` == 'Linux' ]; then
   LINUX_BASE="${RC_BASE}/linux"
@@ -136,6 +156,12 @@ if [ `uname` == 'Linux' ]; then
   )
   for file in "${FONT_FILES[@]}"; do
     symlink "${LINUX_BASE}/fonts/${file}" "${HOME}/.local/share/fonts/${file}"
+  done
+  for file in "${CHIRON_HEI_TTFS[@]}"; do
+    download "${CHIRON_HEI_PREFIX}/${file}" "${HOME}/.local/share/fonts/${file}"
+  done
+  for file in "${CHIRON_SUNG_TTFS[@]}"; do
+    download "${CHIRON_SUNG_PREFIX}/${file}" "${HOME}/.local/share/fonts/${file}"
   done
   sudo_copy "${LINUX_BASE}/fonts/65-cjk-fallback.conf" "/etc/fonts/conf.d/65-cjk-fallback.conf"
   sudo_copy "${LINUX_BASE}/fonts/75-color-emoji.conf" "/etc/fonts/conf.d/75-color-emoji.conf"
