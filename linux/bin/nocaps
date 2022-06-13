@@ -1,16 +1,26 @@
 #!/bin/bash
 
-lid_status() {
-  cat /proc/acpi/button/lid/LID/state | cut -d\: -f2 | xargs
-}
-
 caps_lock() {
   xset -q | sed -n 's/^.*Caps Lock:\s*\(\S*\).*$/\1/p'
 }
 
+lid_status() {
+  cat /proc/acpi/button/lid/LID/state | cut -d\: -f2 | xargs
+}
+
+external_monitor() {
+  DP1=$(xrandr --prop | grep -e "^DP1" | cut -d ' ' -f2)
+  DP2=$(xrandr --prop | grep -e "^DP2" | cut -d ' ' -f2)
+  if [[ "${DP1}" == "connected" || "${DP2}" == "connected" ]]; then
+    return "connected"
+  else
+    return "disconnected"
+  fi
+}
+
 while true; do
   sleep 10
-  if [ $(lid_status) == "closed" ]; then
+  if [ $(lid_status) == "closed" && $(external_monitor) != "connected" ]; then
     continue
   fi
   if [ $(caps_lock) == "on" ]; then
