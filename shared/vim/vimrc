@@ -43,6 +43,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 
 " UI Display
+Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-signify'
@@ -87,6 +88,17 @@ highlight link LspCxxHlGroupMemberVariable Normal
 " Indent Guides
 set list listchars=tab:\▏\ ,trail:·
 let g:indentLine_char='▏'
+
+" Startify
+let g:startify_change_to_vcs_root=1
+let g:startify_fortune_use_unicode=1
+let g:startify_lists = [
+      \ { 'type': 'bookmarks', 'header': ['Bookmarks'] },
+      \ { 'type': 'dir', 'header': ['Most Recents'] },
+      \ ]
+let g:startify_bookmarks = [
+      \ { 'v': '~/.vimrc' },
+      \ ]
 
 " Lightline
 let g:lightline={
