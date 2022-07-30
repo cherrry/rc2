@@ -97,7 +97,7 @@ let g:startify_lists = [
       \ { 'type': 'dir', 'header': ['Most Recents'] },
       \ ]
 let g:startify_bookmarks = [
-      \ { 'v': '~/.vimrc' },
+      \ '~/.vimrc',
       \ ]
 
 " Lightline
