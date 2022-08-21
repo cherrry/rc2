@@ -8,7 +8,7 @@ download() {
   local dest="$2"
   echo "Download File ${dest} -> ${url}"
   return  # comment to download
-  mkdir -p "$(dirname ${dest})"
+  mkdir -p "$(dirname "${dest}")"
   rm -rf "${dest}"
   curl --fail --location --output "${dest}" "${url}"
 }
@@ -18,7 +18,7 @@ gitmodule() {
   local dest="$2"
   echo "Git Module ${dest} -> ${repo}"
   return  # comment to clone
-  mkdir -p "$(dirname ${dest})"
+  mkdir -p "$(dirname "${dest}")"
   rm -rf "${dest}"
   git clone --recursive "${repo}" "${dest}"
 }
@@ -27,7 +27,7 @@ symlink() {
   local src="$1"
   local dest="$2"
   echo "Symlink ${dest} -> ${src}"
-  mkdir -p "$(dirname ${dest})"
+  mkdir -p "$(dirname "${dest}")"
   rm -rf "${dest}"
   ln -s "${src}" "${dest}"
 }
@@ -45,7 +45,7 @@ copy() {
   local src="$1"
   local dest="$2"
   echo "Copy ${dest} -> ${src}"
-  mkdir -p "$(dirname ${dest})"
+  mkdir -p "$(dirname "${dest}")"
   rm -rf "${dest}"
   cp "${src}" "${dest}"
 }
@@ -53,9 +53,9 @@ copy() {
 sudo_copy() {
   local src="$1"
   local dest="$2"
-  # return  # comment to sudo copy
+  return  # comment to sudo copy
   echo "SUDO: Copy ${dest} -> ${src}"
-  sudo mkdir -p "$(dirname ${dest})"
+  sudo mkdir -p "$(dirname "${dest}")"
   sudo rm -rf "${dest}"
   sudo cp "${src}" "${dest}"
 }
@@ -188,6 +188,22 @@ if [ `uname` == 'Darwin' ]; then
   MAC_BASE="${RC_BASE}/mac"
 
   tic -o "${HOME}/.terminfo" "${MAC_BASE}/terminfo/xterm-256color.terminfo"
+
+  FONT_FILES=(
+    "Hack Bold Italic Nerd Font Complete.ttf"
+    "Hack Bold Nerd Font Complete.ttf"
+    "Hack Italic Nerd Font Complete.ttf"
+    "Hack Regular Nerd Font Complete.ttf"
+  )
+  for file in "${FONT_FILES[@]}"; do
+    copy "${RC_BASE}/linux/fonts/${file}" "${HOME}/Library/Fonts/${file}"
+  done
+  for file in "${CHIRON_HEI_TTFS[@]}"; do
+    download "${CHIRON_HEI_PREFIX}/${file}" "${HOME}/Library/Fonts/${file}"
+  done
+  for file in "${CHIRON_SUNG_TTFS[@]}"; do
+    download "${CHIRON_SUNG_PREFIX}/${file}" "${HOME}/Library/Fonts/${file}"
+  done
 fi
 
 # Corp Specific
