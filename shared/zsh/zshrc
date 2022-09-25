@@ -17,7 +17,10 @@ function precmd() {
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 if [ -z "${EXPORT_HOMEBREW_SHELLENV}" ]; then
-  if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+  if [[ -s "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+    export EXPORT_HOMEBREW_SHELLENV=1
+  elif [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     export EXPORT_HOMEBREW_SHELLENV=1
   elif [[ -d "${HOME}/.linuxbrew" ]]; then
