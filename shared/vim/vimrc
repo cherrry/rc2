@@ -37,10 +37,8 @@ Plug 'fnune/base16-vim', {'commit': '00a414d'}
 
 " Syntax Files
 Plug 'tpope/vim-git'
-Plug 'bfrg/vim-cpp-modern'
+Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
-Plug 'pangloss/vim-javascript'
-Plug 'elzr/vim-json'
 
 " UI Display
 Plug 'mhinz/vim-startify'
@@ -87,9 +85,6 @@ set termguicolors
 colorscheme base16-classic-dark
 highlight Comment cterm=italic
 highlight Normal ctermbg=None guibg=NONE
-highlight link LspCxxHlGroupEnumConstant cppConstant
-highlight link LspCxxHlGroupNamespace cppConstant
-highlight link LspCxxHlGroupMemberVariable Normal
 
 " Indent Guides
 set list listchars=tab:\▏\ ,trail:·
