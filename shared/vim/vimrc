@@ -48,8 +48,12 @@ Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-signify'
 
+" Language Server
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 " Editing
-Plug 'neoclide/coc.nvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'google/vim-codefmt'
 
@@ -110,30 +114,30 @@ set noshowmode
 
 let g:vim_json_syntax_conceal=0
 
+" Language Server
+if executable('pyls')
+  autocmd User lsp_setup call lsp#register_server({
+        \   'name': 'pyls',
+        \   'cmd': {server_info->['pyls']},
+        \   'allowlist': ['python'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
 " Tab Completion
-inoremap <silent><expr> <tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<c-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Hover Documentation
-nnoremap <silent> K :call <sid>show_documentation()<cr>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
+inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
 
 " Navigation
 let g:fern#renderer = "nerdfont"
