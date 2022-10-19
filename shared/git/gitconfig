@@ -5,6 +5,7 @@
     quotepath = false
     excludesfile = ~/.gitignore
     ignorecase = false
+    hooksPath = ~/.git_hooks
 [pager]
     diff = delta
     log = delta

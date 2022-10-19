@@ -1,0 +1,9 @@
+#!/bin/bash
+
+git_root="$(git rev-parse --absolute-git-dir)"
+git_op="${2}"
+
+if [[ -d "${git_root}/rebase-merge" ]] && [[ "${git_op}" = "commit" ]]; then
+  echo "Forbit 'git commit --amend' during rebase, use --no-verify to bypass check."
+  exit 1
+fi

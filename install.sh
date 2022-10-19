@@ -90,6 +90,7 @@ symlink "${SHARED_BASE}/vim/coc-settings.json" "${HOME}/.vim/coc-settings.json"
 # Shared: Git
 symlink "${SHARED_BASE}/git/gitconfig" "${HOME}/.gitconfig"
 symlink "${SHARED_BASE}/git/gitignore" "${HOME}/.gitignore"
+symlink "${SHARED_BASE}/git/hooks" "${HOME}/.git_hooks"
 
 symlink "${SHARED_BASE}/wallpapers" "${HOME}/wallpapers"
 
