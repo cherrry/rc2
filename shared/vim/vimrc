@@ -52,6 +52,8 @@ Plug 'mhinz/vim-signify'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'dense-analysis/ale'
+Plug 'rhysd/vim-lsp-ale'
 
 " Editing
 Plug 'scrooloose/nerdcommenter'
@@ -115,6 +117,8 @@ set noshowmode
 let g:vim_json_syntax_conceal=0
 
 " Language Server
+let g:ale_linters={}
+let g:ale_linters_explicit=1
 if executable('pyls')
   autocmd User lsp_setup call lsp#register_server({
         \   'name': 'pyls',
