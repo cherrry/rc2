@@ -82,9 +82,9 @@ nnoremap <c-k> 2<c-y>
 set fillchars=vert:│
 set background=dark
 set termguicolors
+let g:afterglow_italic_comments=1
+let g:afterglow_inherit_background=1
 colorscheme afterglow
-highlight Comment cterm=italic
-highlight Normal ctermbg=None guibg=NONE
 
 " Indent Guides
 set list listchars=tab:\▏\ ,trail:·
