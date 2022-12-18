@@ -33,7 +33,7 @@ Plug 'cherrry/1ndependence.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
-Plug 'fnune/base16-vim', {'commit': '00a414d'}
+Plug 'danilo-augusto/vim-afterglow'
 
 " Syntax Files
 Plug 'tpope/vim-git'
@@ -82,7 +82,7 @@ nnoremap <c-k> 2<c-y>
 set fillchars=vert:│
 set background=dark
 set termguicolors
-colorscheme base16-classic-dark
+colorscheme afterglow
 highlight Comment cterm=italic
 highlight Normal ctermbg=None guibg=NONE
 
