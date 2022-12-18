@@ -1,3 +1,4 @@
+# vi: ft=zsh
 fpath=(
   ${HOME}/.zcustom
   ${fpath}
