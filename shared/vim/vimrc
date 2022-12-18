@@ -109,7 +109,9 @@ let g:lightline={
 set laststatus=2
 set noshowmode
 
+" Disable conceal (who like this feature?)
 let g:vim_json_syntax_conceal=0
+let g:markdown_syntax_conceal=0
 
 " Language Server
 let g:ale_linters={}
