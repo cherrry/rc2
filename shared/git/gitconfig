@@ -21,6 +21,8 @@
     rebase = true
 [push]
     default = simple
+[rebase]
+    abbreviateCommands = true
 [filter "media"]
     clean = git media clean %f
     smudge = git media smudge %f
