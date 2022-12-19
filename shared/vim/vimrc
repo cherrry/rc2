@@ -41,7 +41,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
 
 " UI Display
-Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'mhinz/vim-signify'
@@ -90,21 +89,10 @@ colorscheme afterglow
 set list listchars=tab:\▏\ ,trail:·
 let g:indentLine_char='▏'
 
-" Startify
-let g:startify_change_to_vcs_root=1
-let g:startify_fortune_use_unicode=1
-let g:startify_lists = [
-      \ { 'type': 'bookmarks', 'header': ['Bookmarks'] },
-      \ { 'type': 'dir', 'header': ['Most Recents'] },
-      \ ]
-let g:startify_bookmarks = [
-      \ '~/.vimrc',
-      \ ]
-
 " Lightline
 let g:lightline={
-      \ 'colorscheme': 'wombat',
-      \ 'subseparator': {'left': '│', 'right': '│'},
+      \   'colorscheme': 'apprentice',
+      \   'subseparator': {'left': '│', 'right': '│'},
       \ }
 set laststatus=2
 set noshowmode
