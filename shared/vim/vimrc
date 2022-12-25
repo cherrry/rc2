@@ -28,8 +28,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'google/vim-maktaba'
 Plug 'google/vim-glaive'
 
-" Project Setup
-Plug 'cherrry/1ndependence.vim'
+" Project Config
 Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
