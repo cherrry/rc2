@@ -85,7 +85,6 @@ download \
   "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
   "${HOME}/.vim/autoload/plug.vim"
 symlink "${SHARED_BASE}/vim/vimrc" "${HOME}/.vimrc"
-symlink "${SHARED_BASE}/vim/coc-settings.json" "${HOME}/.vim/coc-settings.json"
 
 # Shared: Git
 symlink "${SHARED_BASE}/git/gitconfig" "${HOME}/.gitconfig"
@@ -227,7 +226,6 @@ if [ -x "$(command -v gcert)" ]; then
     symlink "${CORP_BASE}/android/envrc" "${HOME}/.hook/android_envrc"
 
     symlink "${CORP_BASE}/vim/vimrc" "${HOME}/.vimrc"
-    symlink "${CORP_BASE}/vim/coc-settings.json" "${HOME}/.vim/coc-settings.json"
 
     symlink "${CORP_BASE}/zsh/zpreztorc" "${HOME}/.zpreztorc"
   fi
