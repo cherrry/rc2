@@ -94,23 +94,30 @@ symlink "${SHARED_BASE}/git/hooks" "${HOME}/.git_hooks"
 symlink "${SHARED_BASE}/wallpapers" "${HOME}/wallpapers"
 
 # Shared: Fonts
-CHIRON_HEI_PREFIX="https://github.com/chiron-fonts/chiron-hei-hk/raw/v2.502/TTF"
-CHIRON_HEI_TTFS=(
-  ChironHeiHK-R.ttf
-  ChironHeiHK-R-It.ttf
-  ChironHeiHK-L.ttf
-  ChironHeiHK-L-It.ttf
-  ChironHeiHK-B.ttf
-  ChironHeiHK-B-It.ttf
+HACK_NERD_PREFIX="https://github.com/ryanoasis/nerd-fonts/raw/v2.2.2/patched-fonts/Hack"
+HACK_NERD_TTFS=(
+  "Bold/complete/Hack Bold Nerd Font Complete.ttf"
+  "BoldItalic/complete/Hack Bold Italic Nerd Font Complete.ttf"
+  "Italic/complete/Hack Italic Nerd Font Complete.ttf"
+  "Regular/complete/Hack Regular Nerd Font Complete.ttf"
 )
-CHIRON_SUNG_PREFIX="https://github.com/chiron-fonts/chiron-sung-hk/raw/v1.003/TTF"
+CHIRON_HEI_PREFIX="https://github.com/chiron-fonts/chiron-hei-hk/raw/v2.505/TTF"
+CHIRON_HEI_TTFS=(
+  "ChironHeiHK-R.ttf"
+  "ChironHeiHK-R-It.ttf"
+  "ChironHeiHK-L.ttf"
+  "ChironHeiHK-L-It.ttf"
+  "ChironHeiHK-B.ttf"
+  "ChironHeiHK-B-It.ttf"
+)
+CHIRON_SUNG_PREFIX="https://github.com/chiron-fonts/chiron-sung-hk/raw/v1.007/TTF"
 CHIRON_SUNG_TTFS=(
-  ChironSungHK-R.ttf
-  ChironSungHK-R-It.ttf
-  ChironSungHK-L.ttf
-  ChironSungHK-L-It.ttf
-  ChironSungHK-B.ttf
-  ChironSungHK-B-It.ttf
+  "ChironSungHK-R.ttf"
+  "ChironSungHK-R-It.ttf"
+  "ChironSungHK-L.ttf"
+  "ChironSungHK-L-It.ttf"
+  "ChironSungHK-B.ttf"
+  "ChironSungHK-B-It.ttf"
 )
 
 # Linux specific
@@ -148,14 +155,13 @@ if [ `uname` == 'Linux' ]; then
   symlink "$(which google-chrome-stable)" "${HOME}/bin/chrome"
 
   FONT_FILES=(
-    "Hack Bold Italic Nerd Font Complete.ttf"
-    "Hack Bold Nerd Font Complete.ttf"
-    "Hack Italic Nerd Font Complete.ttf"
-    "Hack Regular Nerd Font Complete.ttf"
     "joypixels.ttf"
   )
   for file in "${FONT_FILES[@]}"; do
     symlink "${LINUX_BASE}/fonts/${file}" "${HOME}/.local/share/fonts/${file}"
+  done
+  for file in "${HACK_NERD_TTFS[@]}"; do
+    download "${HACK_NERD_PREFIX}/${file// /%20}" "${HOME}/.local/share/fonts/$(basename "${file}")"
   done
   for file in "${CHIRON_HEI_TTFS[@]}"; do
     download "${CHIRON_HEI_PREFIX}/${file}" "${HOME}/.local/share/fonts/${file}"
@@ -189,14 +195,8 @@ if [ `uname` == 'Darwin' ]; then
 
   tic -o "${HOME}/.terminfo" "${MAC_BASE}/terminfo/xterm-256color.terminfo"
 
-  FONT_FILES=(
-    "Hack Bold Italic Nerd Font Complete.ttf"
-    "Hack Bold Nerd Font Complete.ttf"
-    "Hack Italic Nerd Font Complete.ttf"
-    "Hack Regular Nerd Font Complete.ttf"
-  )
-  for file in "${FONT_FILES[@]}"; do
-    copy "${RC_BASE}/linux/fonts/${file}" "${HOME}/Library/Fonts/${file}"
+  for file in "${HACK_NERD_TTFS[@]}"; do
+    download "${HACK_NERD_PREFIX}/${file// /%20}" "${HOME}/Library/Fonts/$(basename "${file}")"
   done
   for file in "${CHIRON_HEI_TTFS[@]}"; do
     download "${CHIRON_HEI_PREFIX}/${file}" "${HOME}/Library/Fonts/${file}"
