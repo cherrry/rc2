@@ -35,8 +35,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'danilo-augusto/vim-afterglow'
 
 " Syntax Files
-Plug 'tpope/vim-git'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-git'
 Plug 'ap/vim-css-color'
 
 " UI Display
