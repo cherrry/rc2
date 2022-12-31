@@ -59,6 +59,7 @@ Plug 'google/vim-codefmt'
 Plug 'othree/eregex.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'RRethy/vim-illuminate'
+Plug 'wellle/context.vim'
 
 " Project Explorer
 Plug 'lambdalisue/fern.vim'
