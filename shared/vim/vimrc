@@ -23,7 +23,7 @@ map <c-q> <nop>
 map q <nop>
 
 " Plugin Manager (begin)
-call plug#begin('~/.vim/bundle')
+call plug#begin()
 
 Plug 'google/vim-maktaba'
 Plug 'google/vim-glaive'
@@ -129,7 +129,7 @@ inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
 
 " Navigation
-let g:fern#renderer = "nerdfont"
+let g:fern#renderer='nerdfont'
 nnoremap <c-n> :Fern . -drawer -toggle<cr>
 
 " Fix delete
