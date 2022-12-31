@@ -95,29 +95,26 @@ symlink "${SHARED_BASE}/wallpapers" "${HOME}/wallpapers"
 
 # Shared: Fonts
 HACK_NERD_PREFIX="https://github.com/ryanoasis/nerd-fonts/raw/v2.2.2/patched-fonts/Hack"
-HACK_NERD_TTFS=(
-  "Bold/complete/Hack Bold Nerd Font Complete.ttf"
-  "BoldItalic/complete/Hack Bold Italic Nerd Font Complete.ttf"
-  "Italic/complete/Hack Italic Nerd Font Complete.ttf"
-  "Regular/complete/Hack Regular Nerd Font Complete.ttf"
-)
 CHIRON_HEI_PREFIX="https://github.com/chiron-fonts/chiron-hei-hk/raw/v2.505/TTF"
-CHIRON_HEI_TTFS=(
-  "ChironHeiHK-R.ttf"
-  "ChironHeiHK-R-It.ttf"
-  "ChironHeiHK-L.ttf"
-  "ChironHeiHK-L-It.ttf"
-  "ChironHeiHK-B.ttf"
-  "ChironHeiHK-B-It.ttf"
-)
 CHIRON_SUNG_PREFIX="https://github.com/chiron-fonts/chiron-sung-hk/raw/v1.007/TTF"
-CHIRON_SUNG_TTFS=(
-  "ChironSungHK-R.ttf"
-  "ChironSungHK-R-It.ttf"
-  "ChironSungHK-L.ttf"
-  "ChironSungHK-L-It.ttf"
-  "ChironSungHK-B.ttf"
-  "ChironSungHK-B-It.ttf"
+DOWNLOAD_FONTS=(
+  "https://github.com/googlefonts/noto-emoji/raw/v2.038/fonts/NotoColorEmoji.ttf"
+  "${HACK_NERD_PREFIX}/Bold/complete/Hack Bold Nerd Font Complete.ttf"
+  "${HACK_NERD_PREFIX}/BoldItalic/complete/Hack Bold Italic Nerd Font Complete.ttf"
+  "${HACK_NERD_PREFIX}/Italic/complete/Hack Italic Nerd Font Complete.ttf"
+  "${HACK_NERD_PREFIX}/Regular/complete/Hack Regular Nerd Font Complete.ttf"
+  "${CHIRON_HEI_PREFIX}/ChironHeiHK-R.ttf"
+  "${CHIRON_HEI_PREFIX}/ChironHeiHK-R-It.ttf"
+  "${CHIRON_HEI_PREFIX}/ChironHeiHK-L.ttf"
+  "${CHIRON_HEI_PREFIX}/ChironHeiHK-L-It.ttf"
+  "${CHIRON_HEI_PREFIX}/ChironHeiHK-B.ttf"
+  "${CHIRON_HEI_PREFIX}/ChironHeiHK-B-It.ttf"
+  "${CHIRON_SUNG_PREFIX}/ChironSungHK-R.ttf"
+  "${CHIRON_SUNG_PREFIX}/ChironSungHK-R-It.ttf"
+  "${CHIRON_SUNG_PREFIX}/ChironSungHK-L.ttf"
+  "${CHIRON_SUNG_PREFIX}/ChironSungHK-L-It.ttf"
+  "${CHIRON_SUNG_PREFIX}/ChironSungHK-B.ttf"
+  "${CHIRON_SUNG_PREFIX}/ChironSungHK-B-It.ttf"
 )
 
 # Linux specific
@@ -154,20 +151,8 @@ if [ `uname` == 'Linux' ]; then
   symlink "${LINUX_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
   symlink "$(which google-chrome-stable)" "${HOME}/bin/chrome"
 
-  FONT_FILES=(
-    "joypixels.ttf"
-  )
-  for file in "${FONT_FILES[@]}"; do
-    symlink "${LINUX_BASE}/fonts/${file}" "${HOME}/.local/share/fonts/${file}"
-  done
-  for file in "${HACK_NERD_TTFS[@]}"; do
-    download "${HACK_NERD_PREFIX}/${file// /%20}" "${HOME}/.local/share/fonts/$(basename "${file}")"
-  done
-  for file in "${CHIRON_HEI_TTFS[@]}"; do
-    download "${CHIRON_HEI_PREFIX}/${file}" "${HOME}/.local/share/fonts/${file}"
-  done
-  for file in "${CHIRON_SUNG_TTFS[@]}"; do
-    download "${CHIRON_SUNG_PREFIX}/${file}" "${HOME}/.local/share/fonts/${file}"
+  for file in "${DOWNLOAD_FONTS[@]}"; do
+    download "${file// /%20}" "${HOME}/.local/share/fonts/$(basename "${file}")"
   done
   sudo_copy "${LINUX_BASE}/fonts/65-cjk-fallback.conf" "/etc/fonts/conf.d/65-cjk-fallback.conf"
   sudo_copy "${LINUX_BASE}/fonts/75-color-emoji.conf" "/etc/fonts/conf.d/75-color-emoji.conf"
@@ -195,14 +180,8 @@ if [ `uname` == 'Darwin' ]; then
 
   tic -o "${HOME}/.terminfo" "${MAC_BASE}/terminfo/xterm-256color.terminfo"
 
-  for file in "${HACK_NERD_TTFS[@]}"; do
-    download "${HACK_NERD_PREFIX}/${file// /%20}" "${HOME}/Library/Fonts/$(basename "${file}")"
-  done
-  for file in "${CHIRON_HEI_TTFS[@]}"; do
-    download "${CHIRON_HEI_PREFIX}/${file}" "${HOME}/Library/Fonts/${file}"
-  done
-  for file in "${CHIRON_SUNG_TTFS[@]}"; do
-    download "${CHIRON_SUNG_PREFIX}/${file}" "${HOME}/Library/Fonts/${file}"
+  for file in "${DOWNLOAD_FONTS[@]}"; do
+    download "${file// /%20}" "${HOME}/Library/Fonts/$(basename "${file}")"
   done
 fi
 
