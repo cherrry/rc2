@@ -57,9 +57,9 @@ Plug 'google/vim-codefmt'
 
 " Navigation
 Plug 'othree/eregex.vim'
+Plug 'andymass/vim-matchup'
 Plug 'chaoren/vim-wordmotion'
 Plug 'RRethy/vim-illuminate'
-Plug 'wellle/context.vim'
 
 " Project Explorer
 Plug 'lambdalisue/fern.vim'
