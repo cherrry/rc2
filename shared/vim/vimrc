@@ -84,6 +84,7 @@ set termguicolors
 let g:afterglow_italic_comments=1
 let g:afterglow_inherit_background=1
 colorscheme afterglow
+highlight VertSplit guibg=NONE
 
 " Indent Guides
 set list listchars=tab:\▏\ ,trail:·
