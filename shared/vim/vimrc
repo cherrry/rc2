@@ -106,6 +106,7 @@ let g:vim_markdown_conceal_code_blocks=0
 " Language Server
 let g:ale_linters={}
 let g:ale_linters_explicit=1
+let g:ale_virtualtext_cursor=0
 if executable('pyls')
   autocmd User lsp_setup call lsp#register_server({
         \   'name': 'pyls',
