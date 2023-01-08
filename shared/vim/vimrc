@@ -142,7 +142,7 @@ inoremap <expr><tab>
 inoremap <expr><s-tab>
       \ vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : 
       \ pumvisible() ? '<c-p>' :
-      \ '<tab>'
+      \ '<s-tab>'
 inoremap <expr><cr>
       \ pumvisible() ? asyncomplete#close_popup() . '<cr>' :
       \ '<cr>'
