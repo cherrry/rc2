@@ -205,6 +205,7 @@ if [ -x "$(command -v gcert)" ]; then
     symlink "${CORP_BASE}/android/envrc" "${HOME}/.hook/android_envrc"
 
     symlink "${CORP_BASE}/vim/vimrc" "${HOME}/.vimrc"
+    symlink "${CORP_BASE}/snippets" "${HOME}/.corp_snippets"
 
     symlink "${CORP_BASE}/zsh/zpreztorc" "${HOME}/.zpreztorc"
   fi
