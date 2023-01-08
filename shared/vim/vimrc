@@ -135,16 +135,25 @@ augroup END
 inoremap <expr><c-j>
       \ vsnip#expandable() ? '<plug>(vsnip-expand)' :
       \ '<c-j>'
+snoremap <expr><c-j>
+      \ vsnip#expandable() ? '<plug>(vsnip-expand)' :
+      \ '<c-j>'
 inoremap <expr><tab>
       \ vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : 
       \ pumvisible() ? '<c-n>' :
+      \ '<tab>'
+snoremap <expr><tab>
+      \ vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : 
       \ '<tab>'
 inoremap <expr><s-tab>
       \ vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : 
       \ pumvisible() ? '<c-p>' :
       \ '<s-tab>'
+snoremap <expr><s-tab>
+      \ vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : 
+      \ '<s-tab>'
 inoremap <expr><cr>
-      \ pumvisible() ? asyncomplete#close_popup() . '<cr>' :
+      \ pumvisible() ? asyncomplete#close_popup() :
       \ '<cr>'
 
 " Navigation
