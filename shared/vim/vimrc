@@ -58,7 +58,7 @@ Plug 'google/vim-codefmt'
 " Snippets
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'rafamadriz/friendly-snippets'
+Plug 'cherrry/friendly-snippets-google'
 
 " Navigation
 Plug 'othree/eregex.vim'
