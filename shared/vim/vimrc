@@ -132,29 +132,17 @@ augroup lsp_install
 augroup END
 
 " Tab Completion
-inoremap <expr><c-j>
-      \ vsnip#expandable() ? '<plug>(vsnip-expand)' :
-      \ '<c-j>'
-snoremap <expr><c-j>
-      \ vsnip#expandable() ? '<plug>(vsnip-expand)' :
-      \ '<c-j>'
-inoremap <expr><tab>
-      \ vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' :
-      \ pumvisible() ? '<c-n>' :
-      \ '<tab>'
-snoremap <expr><tab>
-      \ vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' :
-      \ '<tab>'
-inoremap <expr><s-tab>
-      \ vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' :
-      \ pumvisible() ? '<c-p>' :
-      \ '<s-tab>'
-snoremap <expr><s-tab>
-      \ vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' :
-      \ '<s-tab>'
-inoremap <expr><cr>
-      \ pumvisible() ? asyncomplete#close_popup() :
-      \ '<cr>'
+inoremap <expr><tab> pumvisible() ? '<c-n>' : '<tab>'
+inoremap <expr><s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
+inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() . '<cr>' : '<cr>'
+
+" Snippets
+inoremap <expr><c-j> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-j>'
+snoremap <expr><c-j> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-j>'
+inoremap <expr><c-l> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-l>'
+snoremap <expr><c-l> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-l>'
+inoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<s-tab>'
+snoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<s-tab>'
 
 " Navigation
 let g:fern#renderer='nerdfont'
