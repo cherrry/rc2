@@ -141,8 +141,8 @@ inoremap <expr><c-j> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-j>'
 snoremap <expr><c-j> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-j>'
 inoremap <expr><c-l> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-l>'
 snoremap <expr><c-l> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-l>'
-inoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<s-tab>'
-snoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<s-tab>'
+inoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'
+snoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'
 
 " Navigation
 let g:fern#renderer='nerdfont'
