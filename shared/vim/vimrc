@@ -55,11 +55,6 @@ Plug 'rhysd/vim-lsp-ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'google/vim-codefmt'
 
-" Snippets
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'cherrry/friendly-snippets-google'
-
 " Navigation
 Plug 'othree/eregex.vim'
 Plug 'andymass/vim-matchup'
@@ -134,15 +129,7 @@ augroup END
 " Tab Completion
 inoremap <expr><tab> pumvisible() ? '<c-n>' : '<tab>'
 inoremap <expr><s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
-inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() . '<cr>' : '<cr>'
-
-" Snippets
-inoremap <expr><c-j> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-j>'
-snoremap <expr><c-j> vsnip#expandable() ? '<plug>(vsnip-expand)' : '<c-j>'
-inoremap <expr><c-l> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-l>'
-snoremap <expr><c-l> vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-l>'
-inoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'
-snoremap <expr><c-h> vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'
+inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() : '<cr>'
 
 " Navigation
 let g:fern#renderer='nerdfont'
