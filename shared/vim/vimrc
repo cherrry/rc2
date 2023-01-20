@@ -55,12 +55,6 @@ Plug 'rhysd/vim-lsp-ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'google/vim-codefmt'
 
-" Snippets
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-
 " Navigation
 Plug 'othree/eregex.vim'
 Plug 'andymass/vim-matchup'
@@ -136,16 +130,6 @@ augroup END
 inoremap <expr><tab> pumvisible() ? '<c-n>' : '<tab>'
 inoremap <expr><s-tab> pumvisible() ? '<c-p>' : '<s-tab>'
 inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() : '<cr>'
-
-" Snipmates
-let g:snipMate = {
-      \   'snippet_version': 1,
-      \ }
-imap <c-j> <plug>snipMateNextOrTrigger
-smap <c-j> <plug>snipMateNextOrTrigger
-imap <c-p> <plug>snipMateBack
-smap <c-p> <plug>snipMateBack
-imap <c-s> <plug>snipMateShow
 
 " Navigation
 let g:fern#renderer='nerdfont'
