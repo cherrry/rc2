@@ -55,10 +55,8 @@ if [ -x "$(command -v direnv)" ]; then
 fi
 
 # Python
-if [ -x "$(command -v conda)" ]; then
-  eval "$(conda shell.zsh hook)"
-fi
-export PYTHONPYCACHEPREFIX=.pycache
+export PYTHONPYCACHEPREFIX="${HOME}/.cache/python"
+mkdir -p "${PYTHONPYCACHEPREFIX}"
 
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
