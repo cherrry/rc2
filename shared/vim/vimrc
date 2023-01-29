@@ -114,6 +114,13 @@ if executable('pyls')
         \   'allowlist': ['python'],
         \ })
 endif
+if executable('rust-analyzer')
+  autocmd User lsp_setup call lsp#register_server({
+        \   'name': 'rust-analyzer',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'allowlist': ['rust'],
+        \ })
+endif
 
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete

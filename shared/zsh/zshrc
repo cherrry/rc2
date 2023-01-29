@@ -58,6 +58,13 @@ fi
 export PYTHONPYCACHEPREFIX="${HOME}/.cache/python"
 mkdir -p "${PYTHONPYCACHEPREFIX}"
 
+# Rust
+if [ -d "${HOME}/.cargo" ] && [ -z "${RUST_ENV_SETUP}" ]; then
+  source "${HOME}/.cargo/env"
+  export PATH="${PATH}:${HOME}/.rustup/toolchains/stable-x86_64-apple-darwin/bin"
+  export RUST_ENV_SETUP=1
+fi
+
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--border --ansi --tabstop=2"
