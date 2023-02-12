@@ -92,7 +92,7 @@ let g:indentLine_char='▏'
 
 " Lightline
 let g:lightline={
-      \   'colorscheme': 'apprentice',
+      \   'colorscheme': 'jellybeans',
       \   'subseparator': {'left': '│', 'right': '│'},
       \ }
 set laststatus=2
