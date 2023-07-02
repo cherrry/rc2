@@ -80,6 +80,9 @@ if [ ! -x "$(command -v fzf)" ]; then
 fi
 gitmodule "https://github.com/Aloxaf/fzf-tab.git" "${HOME}/.zcontrib/fzf-tab"
 
+# Shared: Helix
+symlink "${SHARED_BASE}/helix" "${HOME}/.config/helix"
+
 # Shared: Vim
 download \
   "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \

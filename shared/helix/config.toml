@@ -1,0 +1,7 @@
+theme = "base16_terminal"
+
+[editor]
+true-color = true
+
+[keys.insert]
+C-c = "normal_mode"
