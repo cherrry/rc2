@@ -47,9 +47,9 @@ source "${HOME}/.zprezto/init.zsh"
 alias -g ...="../.."
 alias -g ....="../../.."
 
-# Exa
-if [ -x "$(command -v exa)" ]; then
-  alias ls='exa'
+# Eza
+if [ -x "$(command -v eza)" ]; then
+  alias ls='eza'
   alias l='ls -1a'
   alias la='ll -a'
 fi
