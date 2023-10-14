@@ -1,7 +1,17 @@
 theme = "base16_terminal"
 
 [editor]
+gutters = ["diagnostics", "diff", "spacer"]
 true-color = true
+undercurl = true
+
+[editor.indent-guides]
+render = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "position", "file-encoding", "file-type"]
 
 [keys.insert]
 C-c = "normal_mode"
