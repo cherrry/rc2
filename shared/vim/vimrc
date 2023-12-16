@@ -32,7 +32,7 @@ Plug 'google/vim-glaive'
 Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
-Plug 'danilo-augusto/vim-afterglow'
+Plug 'sainnhe/edge'
 
 " Syntax Files
 Plug 'sheerun/vim-polyglot'
@@ -81,9 +81,10 @@ nnoremap <c-k> 2<c-y>
 set fillchars=vert:│
 set background=dark
 set termguicolors
-let g:afterglow_italic_comments=1
-let g:afterglow_inherit_background=1
-colorscheme afterglow
+let g:edge_style='aura'
+let g:edge_better_performance = 1
+colorscheme edge
+highlight Normal guibg=NONE
 highlight VertSplit guibg=NONE
 
 " Indent Guides
@@ -92,7 +93,7 @@ let g:indentLine_char='▏'
 
 " Lightline
 let g:lightline={
-      \   'colorscheme': 'jellybeans',
+      \   'colorscheme': 'edge',
       \   'subseparator': {'left': '│', 'right': '│'},
       \ }
 set laststatus=2
