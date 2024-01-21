@@ -32,7 +32,7 @@ Plug 'google/vim-glaive'
 Plug 'editorconfig/editorconfig-vim'
 
 " Color Scheme
-Plug 'sainnhe/edge'
+Plug 'romainl/Apprentice'
 
 " Syntax Files
 Plug 'sheerun/vim-polyglot'
@@ -81,11 +81,10 @@ nnoremap <c-k> 2<c-y>
 set fillchars=vert:│
 set background=dark
 set termguicolors
-let g:edge_style='aura'
-let g:edge_better_performance = 1
-colorscheme edge
+colorscheme apprentice
 highlight Normal guibg=NONE
 highlight VertSplit guibg=NONE
+highlight Comment cterm=italic gui=italic
 
 " Indent Guides
 set list listchars=tab:\▏\ ,trail:·
@@ -93,7 +92,7 @@ let g:indentLine_char='▏'
 
 " Lightline
 let g:lightline={
-      \   'colorscheme': 'edge',
+      \   'colorscheme': 'jellybeans',
       \   'subseparator': {'left': '│', 'right': '│'},
       \ }
 set laststatus=2
