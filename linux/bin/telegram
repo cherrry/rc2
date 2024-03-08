@@ -1,3 +1,0 @@
-#!/bin/bash
-export IBUS_USE_PORTAL=1
-exec "${HOME}/bin/Telegram/Telegram" $@

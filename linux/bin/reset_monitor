@@ -1,7 +1,0 @@
-#!/bin/bash
-
-MONITOR=$(autorandr | grep detected | sed 's/\s.*//g')
-
-if [ "${MONITOR}" != "" ]; then
-  autorandr --force "${MONITOR}"
-fi

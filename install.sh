@@ -138,7 +138,6 @@ if [ `uname` == 'Linux' ]; then
     "i3/config"
     "i3/i3status"
     "kitty/kitty.conf"
-    "sway/config"
     "systemd/user/ssh-agent.service"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
@@ -146,13 +145,6 @@ if [ `uname` == 'Linux' ]; then
   done
 
   symlink "${LINUX_BASE}/i3/scripts/touchpad.sh" "${HOME}/bin/i3/touchpad.sh"
-
-  symlink "${LINUX_BASE}/bin/nemo" "${HOME}/bin/nemo"
-  symlink "${LINUX_BASE}/bin/nocaps" "${HOME}/bin/nocaps"
-  symlink "${LINUX_BASE}/bin/reset_monitor" "${HOME}/bin/reset_monitor"
-  symlink "${LINUX_BASE}/bin/telegram" "${HOME}/bin/telegram"
-  symlink "${LINUX_BASE}/bin/xsecurelock" "${HOME}/bin/xsecurelock"
-  symlink "$(which google-chrome-stable)" "${HOME}/bin/chrome"
 
   for file in "${DOWNLOAD_FONTS[@]}"; do
     download "${file// /%20}" "${HOME}/.local/share/fonts/$(basename "${file}")"
@@ -166,15 +158,13 @@ if [ `uname` == 'Linux' ]; then
     "${LINUX_BASE}/fonts/78-ban-noto-cjk-fonts.conf" \
     "/etc/fonts/conf.d/78-ban-noto-cjk-fonts.conf"
 
-  sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell" "/usr/local/bin/sway_shell"
-  sudo_copy "${LINUX_BASE}/sway/sway_shell/sway_shell.desktop" "/usr/share/wayland-sessions/sway_shell.desktop"
-
   user_service "ssh-agent"
 
   if [ ! -x "$(command -v kitty)" ]; then
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
     symlink "${HOME}/.local/kitty.app/bin/kitty" "${HOME}/bin/kitty"
   fi
+  symlink "${LINUX_BASE}/kitty/kitty.desktop" "${HOME}/.local/share/applications/kitty.desktop"
 fi
 
 # Mac Specific
@@ -192,13 +182,7 @@ fi
 if [ -x "$(command -v gcert)" ]; then
   CORP_BASE="${RC_BASE}/corp"
 
-  symlink "${CORP_BASE}/bin/automouse" "${HOME}/bin/automouse"
   symlink "${CORP_BASE}/ssh/config" "${HOME}/.ssh/config"
-
-  # Laptop
-  if [ ! -x "$(command -v g4)" ]; then
-    symlink "${CORP_BASE}/bin/newday" "${HOME}/bin/newday"
-  fi
 
   # Workstation
   if [ -x "$(command -v g4)" ]; then

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-killall compton
-/usr/bin/xsecurelock
-compton -b

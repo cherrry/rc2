@@ -1,5 +1,0 @@
-#!/bin/bash
-export GTK_SCALE=2
-export GTK_DPI_SCALE=0.5
-
-exec /usr/bin/nemo $@
