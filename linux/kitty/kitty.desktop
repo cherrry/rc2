@@ -1,1 +1,10 @@
-
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Kitty
+GenericName=Terminal Emulator
+Comment=Fast, feature-rich, GPU based terminal
+TryExec=/home/cyng/.local/kitty.app/bin/kitty
+Exec=/home/cyng/.local/kitty.app/bin/kitty
+Icon=/home/cyng/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png
+Categories=System;TerminalEmulator;
