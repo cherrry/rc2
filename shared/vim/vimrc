@@ -65,6 +65,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/glyph-palette.vim'
 
 " Plugin Manager (end)
 call plug#end()
@@ -141,6 +142,10 @@ inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() : '<cr>'
 " Navigation
 let g:fern#renderer='nerdfont'
 nnoremap <c-n> :Fern . -drawer -toggle<cr>
+augroup glyph_palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+augroup END
 
 " Fix delete
 set backspace=2
