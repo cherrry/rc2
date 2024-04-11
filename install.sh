@@ -138,7 +138,6 @@ if [ `uname` == 'Linux' ]; then
     "i3/config"
     "i3/i3status"
     "kitty/kitty.conf"
-    "systemd/user/ssh-agent.service"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
@@ -157,8 +156,6 @@ if [ `uname` == 'Linux' ]; then
   sudo_copy \
     "${LINUX_BASE}/fonts/78-ban-noto-cjk-fonts.conf" \
     "/etc/fonts/conf.d/78-ban-noto-cjk-fonts.conf"
-
-  user_service "ssh-agent"
 
   if [ ! -x "$(command -v kitty)" ]; then
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
@@ -183,6 +180,10 @@ if [ -x "$(command -v gcert)" ]; then
   CORP_BASE="${RC_BASE}/corp"
 
   symlink "${CORP_BASE}/ssh/config" "${HOME}/.ssh/config"
+
+  symlink "${CORP_BASE}/ssh-agent/envvars.conf" "${HOME}/.config/environment.d/envvars.conf"
+  symlink "${CORP_BASE}/ssh-agent/ssh-agent.service" "${HOME}/.config/systemd/user/ssh-agent.service"
+  user_service "ssh-agent"
 
   # Workstation
   if [ -x "$(command -v g4)" ]; then
