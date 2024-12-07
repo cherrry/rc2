@@ -124,26 +124,15 @@ DOWNLOAD_FONTS=(
 if [ `uname` == 'Linux' ]; then
   LINUX_BASE="${RC_BASE}/linux"
 
-  symlink "${LINUX_BASE}/X11/xsessionrc" "${HOME}/.xsessionrc"
-  symlink "${LINUX_BASE}/X11/Xresources" "${HOME}/.Xresources"
-  sudo_copy "${LINUX_BASE}/X11/60-keyboard-backlight.conf" "/etc/X11/xorg.conf.d/60-keyboard-backlight.conf"
-
   copy "${LINUX_BASE}/gtk-3.0/settings.ini" "${HOME}/.config/settings.ini"
-  symlink "${LINUX_BASE}/compton/compton.conf" "${HOME}/.config/compton.conf"
   symlink "${LINUX_BASE}/redshift/redshift.conf" "${HOME}/.config/redshift.conf"
 
   SYMLINK_CONFIGS=(
-    "autorandr/postswitch"
-    "dunst/dunstrc"
-    "i3/config"
-    "i3/i3status"
     "kitty/kitty.conf"
   )
   for file in "${SYMLINK_CONFIGS[@]}"; do
     symlink "${LINUX_BASE}/${file}" "${HOME}/.config/${file}"
   done
-
-  symlink "${LINUX_BASE}/i3/scripts/touchpad.sh" "${HOME}/bin/i3/touchpad.sh"
 
   for file in "${DOWNLOAD_FONTS[@]}"; do
     download "${file// /%20}" "${HOME}/.local/share/fonts/$(basename "${file}")"
