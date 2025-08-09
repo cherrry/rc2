@@ -1,3 +1,3 @@
 require('config.lazy')
 
-vim.cmd.colorscheme('min-theme')
+vim.cmd.colorscheme('onedark')
